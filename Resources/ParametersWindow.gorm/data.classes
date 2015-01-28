@@ -1,0 +1,22 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "handleCellAction:",
+	    "okClicked:"
+	);
+	Super = NSObject;
+    };
+    ParametersWindowController = {
+	Actions = (
+	    "handleCellAction:",
+	    "okClicked:"
+	);
+	Outlets = (
+	    box,
+	    matrix,
+	    okButton
+	);
+	Super = NSWindowController;
+    };
+}

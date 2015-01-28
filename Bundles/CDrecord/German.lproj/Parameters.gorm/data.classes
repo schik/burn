@@ -1,0 +1,14 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    CDrecordParametersView = {
+	Actions = (
+	);
+	Outlets = (
+	    view,
+	    window,
+	    burnFreeCheckBox,
+	    modePopup
+	);
+	Super = NSObject;
+    };
+}

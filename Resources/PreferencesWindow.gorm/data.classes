@@ -1,0 +1,20 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "moduleChanged:"
+	);
+	Super = NSObject;
+    };
+    PreferencesWindowController = {
+	Actions = (
+	    "moduleChanged:"
+	);
+	Outlets = (
+	    box,
+	    namesPopup,
+	    moduleIcon
+	);
+	Super = NSWindowController;
+    };
+}

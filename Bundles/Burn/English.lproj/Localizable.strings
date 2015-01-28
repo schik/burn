@@ -1,0 +1,23 @@
+/***
+English.lproj/Localizable.strings
+updated by make_strings 2011-09-20 10:54:38 +0200
+add comments above this one
+***/
+
+
+/*** Strings from BurnController.m ***/
+/* File: BurnController.m:96 */
+"No burning device specified." = "No burning device specified.";
+/* File: BurnController.m:97 */
+"Process will be stopped." = "Process will be stopped.";
+/* File: BurnController.m:185 */
+"Terminating process." = "Terminating process.";
+/* File: BurnController.m:350 */
+"The disk in '%@' cannot be erased." = "The disk in '%@' cannot be erased.";
+/* File: BurnController.m:339 */
+"The disk in '%@' is not an erasable disk."
+= "The disk in '%@' is not an erasable disk.";
+/* File: BurnController.m:329 */
+"There is no disk in '%@'." = "There is no disk in '%@'.";
+/* File: BurnController.m:253 */
+"Unknown" = "Unknown";

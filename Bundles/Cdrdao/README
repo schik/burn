@@ -1,0 +1,44 @@
+Cdrdao.bundle
+=============
+Cdrdao.bundle is a supportig bundle for Burn.app. It implements the
+API for Burn.app's CD burning bundles and thus can be used as a
+direct replacement for the built-in CDrecord.bundle.
+Cdrdao.bundle wraps the CD burning program cdrdao.
+
+
+Requirements
+============
+
+Burn.app
+--------
+As Cdrdao.bundle is a suporting bundle for Burn.app you will of
+course need the application. Otherwise thebundle is of no use
+for you.
+Download the latest version from here:
+http://gsburn.sourceforge.net
+
+cdrdao
+------
+Cdrdao.bundle is simply a frontend for the cdrdao program. This
+program (or its sources) are not part of this package. You will
+need to intall cdrdao separately. See your distro's install
+instructions for how o do this. You may also ge cdrdao from
+http://cdrdao.sourceforge.net and install it from from source.
+
+Cdrdao.bundle has been tested with the following versions of cdrdao:
+
+1.1.5, 1.1.7, 1.1.9
+To use ATAPI devices under Linux without the SCSI emulation driver
+you need at least version 1.1.8.
+
+
+Installation
+============
+
+In the bundle's source code directory type:
+
+> make
+> make install
+
+This will install the bundle in a place where it can be automatically
+found by Burn.app.

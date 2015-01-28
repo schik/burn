@@ -1,0 +1,26 @@
+/***
+English.lproj/Localizable.strings
+updated by make_strings 2011-09-22 10:05:29 +0200
+add comments above this one
+***/
+
+
+/*** Strings from CDparanoiaController.m ***/
+/* File: CDparanoiaController.m:340 */
+"Launching %@ %@" = "Launching %@ %@";
+/* File: CDparanoiaController.m:362 */
+"Removing file failed." = "Removing file failed.";
+/* File: CDparanoiaController.m:360 */
+"Removing temporary file %@." = "Removing temporary file %@.";
+/* File: CDparanoiaController.m:384 */
+"Terminating process." = "Terminating process.";
+
+
+/*** Strings from CDparanoiaParametersView.m ***/
+/* File: CDparanoiaParametersView.m:180 */
+"OK" = "OK";
+/* File: CDparanoiaParametersView.m:178 */
+"Program for %@ not defined or not executable. %@ may not run correctly."
+= "Program for %@ not defined or not executable. %@ may not run correctly.";
+/* File: CDparanoiaParametersView.m:79 */
+"cdparanoia" = "cdparanoia";

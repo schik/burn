@@ -1,0 +1,21 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    CdrdaoSettingsView = {
+	Actions = (
+	    "chooseClicked:"
+	);
+	Outlets = (
+	    window,
+	    view,
+	    programTextField,
+	    drivesTable
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "chooseClicked:"
+	);
+	Super = NSObject;
+    };
+}

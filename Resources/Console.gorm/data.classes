@@ -1,0 +1,11 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    ConsolePanel = {
+	Actions = (
+	);
+	Outlets = (
+	    outputWindow
+	);
+	Super = NSWindowController;
+    };
+}

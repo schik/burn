@@ -1,0 +1,26 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "orderFrontFontPanel:"
+	);
+	Super = NSObject;
+    };
+    ToolPanel = {
+	Actions = (
+	    "toolChanged:"
+	);
+	Outlets = (
+	    panel,
+	    toolTable
+	);
+	Super = NSObject;
+    };
+    ToolSelector = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSView;
+    };
+}

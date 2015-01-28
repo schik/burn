@@ -1,0 +1,34 @@
+/***
+French.lproj/Localizable.strings
+updated by make_strings 2011-09-20 10:54:38 +0200
+add comments above this one
+***/
+
+
+/*** Unmatched/untranslated keys ***/
+
+/* File: BurnController.m:96 */
+/* Flag: untranslated */
+"No burning device specified." = "No burning device specified.";
+
+/* File: BurnController.m:329 */
+/* Flag: untranslated */
+"There is no disk in '%@'." = "There is no disk in '%@'.";
+
+/* File: BurnController.m:339 */
+/* Flag: untranslated */
+"The disk in '%@' is not an erasable disk."
+= "The disk in '%@' is not an erasable disk.";
+
+/* File: BurnController.m:350 */
+/* Flag: untranslated */
+"The disk in '%@' cannot be erased." = "The disk in '%@' cannot be erased.";
+
+
+/*** Strings from BurnController.m ***/
+/* File: BurnController.m:97 */
+"Process will be stopped." = "Process sera arr\u00e9t\u00e9.";
+/* File: BurnController.m:185 */
+"Terminating process." = "Terminaison du processus.";
+/* File: BurnController.m:253 */
+"Unknown" = "Inconnu";

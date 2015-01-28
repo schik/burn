@@ -1,0 +1,26 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "orderFrontFontPanel:"
+	);
+	Super = NSObject;
+    };
+    WorkInProgress = {
+	Actions = (
+	);
+	Outlets = (
+	    win,
+	    textField,
+	    progInd
+	);
+	Super = NSObject;
+    };
+    WorkInProgressIndicator = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSProgressIndicator;
+    };
+}

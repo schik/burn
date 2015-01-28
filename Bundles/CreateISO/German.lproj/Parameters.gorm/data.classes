@@ -1,0 +1,14 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    CreateIsoParametersView = {
+	Actions = (
+	);
+	Outlets = (
+	    rockRidgeCheckBox,
+	    jolietCheckBox,
+	    isoLevelPopUp,
+	    window
+	);
+	Super = NSObject;
+    };
+}

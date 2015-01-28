@@ -1,0 +1,27 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "openFile:",
+	    "orderFrontFontPanel:"
+	);
+	Super = NSObject;
+    };
+    TrackInspector = {
+	Actions = (
+	    "openFile:"
+	);
+	Outlets = (
+	    window,
+	    durationField,
+	    sizeField,
+	    sourceField,
+	    nameField,
+	    typeIcon,
+	    typeField,
+	    modifiedField,
+	    openButton
+	);
+	Super = NSObject;
+    };
+}

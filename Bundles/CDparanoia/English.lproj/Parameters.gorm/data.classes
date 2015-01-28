@@ -1,0 +1,23 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    CDparanoiaParametersView = {
+	Actions = (
+	    "chooseClicked:"
+	);
+	Outlets = (
+	    programTextField,
+	    disParanoiaCheckBox,
+	    disXparanoiaCheckBox,
+	    disRepairCheckBox,
+	    view,
+	    window
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "chooseClicked:"
+	);
+	Super = NSObject;
+    };
+}

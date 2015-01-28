@@ -1,0 +1,55 @@
+MP3ToWav.bundle
+===============
+MP3ToWav.bundle is a supportig bundle for Burn.app. It implements the
+API for Burn.app's audio file conversion bundles. MP3ToWav.bundle
+converts, as its name implies, mp3 audio files into wav audio files
+which can be burned onto a CD playable in your home stereo.
+MP3ToWav.bundle is based on the code of mpg321. I have simplified
+the code as I merely need the wav file output and not the playing part.
+I also converted the C code into Objective C.
+
+
+Requirements
+============
+
+Burn.app
+--------
+As MP3ToWav.bundle is a suporting bundle for Burn.app you will of
+course need the application. Otherwise the bundle is of no use
+for you.
+Download the latest version from here:
+http://gsburn.sourceforge.net
+
+libao
+-----
+Libao is a cross-platform audio library that allows programs to
+output audio using a simple API on a wide variety of platforms.
+MP3ToWav.bundle uses libao to produce wav files.
+libao is not part of the package, you will need to install it
+separately. If your distro does not provide an installable package
+for libao you may get it here:
+http://www.xiph.org/ao/
+
+libmad
+------
+MAD is a high-quality MPEG audio decoder. It currently supports
+MPEG-1 and the MPEG-2 extension to lower sampling frequencies,
+as well as the de facto MPEG 2.5 format.
+MP3ToWab.bundle uses libmad to decode the MP3 files before being
+able to write them as wav files.
+libmad is not part of the package, you will need to install it
+separately. If your distro does not provide an installable package
+for libmad you may get it here:
+http://www.underbit.com/products/mad
+
+
+Installation
+============
+
+In the bundle's source code directory type:
+
+> make
+> make install
+
+This will install the bundle in a place where it can be automatically
+found by Burn.app.

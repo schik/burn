@@ -1,0 +1,18 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    AudioCDInspector = {
+	Actions = (
+	);
+	Outlets = (
+	    window,
+	    cdTable
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "orderFrontFontPanel:"
+	);
+	Super = NSObject;
+    };
+}

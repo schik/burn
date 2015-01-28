@@ -1,0 +1,25 @@
+{
+    backcolor = {
+	alpha = <*R1>;
+	blue = <*R0.667>;
+	green = <*R0.667>;
+	red = <*R0.667>;
+    };
+    fsn_info_type = <*I0>;
+    geometry = "495 158 591 300 0 0  1216 1024 ";
+    iconposition = <*I5>;
+    iconsize = <*I48>;
+    labeltxtsize = <*I12>;
+    lastselection = (
+	"/home/ahe/Projekte/GNUstep/Burn/Images/iconGSburn.tiff"
+    );
+    singlenode = <*BY>;
+    spatial = <*BY>;
+    textcolor = {
+	alpha = <*R1>;
+	blue = <*R0>;
+	green = <*R0>;
+	red = <*R0>;
+    };
+    viewtype = Icon;
+}

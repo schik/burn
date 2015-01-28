@@ -1,0 +1,579 @@
+/***
+French.lproj/Localizable.strings
+updated by make_strings 2011-09-19 12:50:29 +0200
+add comments above this one
+***/
+
+
+/*** Keys found in multiple places ***/
+
+/* File: BurnProgress.m:108 */
+/* File: Functions.m:206 */
+"Common.abort" = "Annuler";
+
+/* File: BlankPanel.m:53 */
+/* File: BurnProgressController.m:162 */
+/* File: DriversPrefs.m:42 */
+/* File: GeneralParameters.m:51 */
+/* File: GeneralPrefs.m:50 */
+/* File: Inspectors/AudioCDInspector.m:40 */
+/* File: Inspectors/MediaInspector.m:46 */
+/* File: Inspectors/TrackInspector.m:59 */
+/* File: ParametersWindowController.m:61 */
+/* File: PreferencesWindowController.m:93 */
+/* File: ToolPanel.m:122 */
+/* File: WorkInProgress.m:52 */
+"Common.loadNibFail" = "Le chargement du nib \"%@\" a \u00e9chou\u00e9.";
+
+/* File: ExtProgressIndicator.m:197 */
+/* File: Inspectors/TrackInspector.m:213 */
+/* File: Inspectors/TrackInspector.m:287 */
+/* File: ProjectWindowController+OlvDelegate.m:158 */
+/* File: ProjectWindowController+OlvDelegate.m:183 */
+/* File: ProjectWindowController+OlvDelegate.m:205 */
+"Common.MB" = "%1.2f Mo";
+
+/* File: GrabAudioCDHelper.m:215 */
+/* File: OpenISOImagePanel.m:141 */
+"Common.cancel" = "Annuler";
+
+/* File: AppController.m:123 */
+/* File: BurnCDHelper.m:68 */
+/* File: BurnCDHelper.m:93 */
+/* File: BurnProgressController.m:439 */
+/* File: BurnProgressController.m:455 */
+/* File: BurnProgressController.m:466 */
+/* File: ConvertAudioHelper.m:140 */
+/* File: CreateISOHelper.m:86 */
+/* File: CreateISOHelper.m:120 */
+/* File: GrabAudioCDHelper.m:112 */
+/* File: GrabAudioCDHelper.m:215 */
+"Common.OK" = "OK";
+
+/* File: BurnCDHelper.m:128 */
+/* File: ConvertAudioHelper.m:172 */
+/* File: CreateISOHelper.m:214 */
+/* File: GrabAudioCDHelper.m:159 */
+"Common.cancelled" = "Annul\u00e9.";
+
+/* File: BurnCDHelper.m:80 */
+/* File: CreateISOHelper.m:107 */
+"Common.fileNotFound" = "Le fichier %@ n'a pu \u00e8tre trouv\u00e9.";
+
+/* File: BurnCDHelper.m:67 */
+/* File: BurnCDHelper.m:92 */
+/* File: BurnProgressController.m:438 */
+/* File: BurnProgressController.m:454 */
+/* File: BurnProgressController.m:465 */
+/* File: ConvertAudioHelper.m:139 */
+/* File: CreateISOHelper.m:85 */
+/* File: CreateISOHelper.m:119 */
+/* File: GrabAudioCDHelper.m:111 */
+"Common.stopProcess" = "Le process sera arr\u00e9t\u00e9.";
+
+/* File: BurnCDHelper.m:190 */
+/* File: BurnCDHelper.m:194 */
+/* File: BurnCDHelper.m:196 */
+/* File: ConvertAudioHelper.m:274 */
+/* File: GrabAudioCDHelper.m:318 */
+"Common.trackTitle" = "Titre de la piste: %@";
+
+/* File: ParametersWindowController.m:194 */
+/* File: PreferencesWindowController.m:199 */
+"Common.initModuleFail" = "Incapacit\u00e9 d'initialiser le module %@";
+
+/* File: AppController.m:747 */
+/* File: ParametersWindowController.m:138 */
+/* File: PreferencesWindowController.m:159 */
+"Common.loadBundleFail" = "Incapacit\u00e9 de charger le bundle %@.";
+
+/* File: BurnProgressController.m:290 */
+/* File: GrabAudioCDHelper.m:218 */
+"Common.no" = "Non";
+
+/* File: BurnProgressController.m:290 */
+/* File: GrabAudioCDHelper.m:218 */
+"Common.yes" = "Oui";
+
+/* File: AppController.m:616 */
+/* Flag: untranslated */
+/* File: AppController.m:646 */
+/* Flag: untranslated */
+"AppController.noValidType" = "Not a valid data type in pasteboard.";
+
+/* File: Track.m:506 */
+/* Flag: untranslated */
+/* File: Track.m:563 */
+/* Flag: untranslated */
+"Track.no16BitStereo"
+= "%@ does not contain 16-bit stereo audio at 44100Hz sample rate. File rejected.";
+
+/* File: Inspectors/MediaInspector.m:102 */
+/* File: Project.m:202 */
+/* File: Project.m:203 */
+"Common.unknown" = "Inconnu";
+
+/* File: OpenISOImagePanel.m:161 */
+/* File: ToolSelector.m:39 */
+"Common.Burn" = "Graver";
+
+/* File: Inspectors/TrackInspector.m:210 */
+/* File: Inspectors/TrackInspector.m:284 */
+/* File: ProjectWindowController+OlvDelegate.m:157 */
+/* File: ProjectWindowController+OlvDelegate.m:182 */
+/* File: ProjectWindowController+OlvDelegate.m:204 */
+"Common.kB" = "%1.2f kB";
+
+/* File: ConvertAudioHelper.m:195 */
+/* File: CreateISOHelper.m:231 */
+/* File: GrabAudioCDHelper.m:180 */
+"Common.removeTempFile" = "Suppression du fichier temporaire %@.";
+
+/* File: ConvertAudioHelper.m:197 */
+/* File: CreateISOHelper.m:233 */
+/* File: GrabAudioCDHelper.m:182 */
+"Common.removeFail" = "La suppression du fichier a \u00e9chou\u00e9.";
+
+/* File: AppController.m:537 */
+/* File: Inspectors/AudioCDInspector.m:77 */
+"AudioCDInspector.name" = "AudioCD";
+
+/* File: AppController.m:531 */
+/* File: Inspectors/TrackInspector.m:318 */
+"TrackInspector.name" = "Piste";
+
+/* File: AppController.m:534 */
+/* File: Inspectors/MediaInspector.m:121 */
+"MediaInspector.name" = "M\u00e9dias";
+
+
+/*** Unmatched/untranslated keys ***/
+
+/* File: AppController.m:122 */
+/* Flag: untranslated */
+"AppController.runningFirstTime"
+= "%@ seems to be running for the first time.\nPlease check the settings before you commence work.";
+
+/* File: AppController.m:140 */
+/* Flag: untranslated */
+"AppController.svcRegistered" = "Services registered.";
+
+/* File: AppController.m:672 */
+/* Flag: untranslated */
+"AppController.couldNotAddFiles" = "Could not add files to CD compilation.";
+
+/* File: AppController.m:677 */
+/* Flag: untranslated */
+"AppController.couldNotAddTracks"
+= "Could not add tracks to CD compilation.";
+
+/* File: BlankPanel.m:132 */
+/* Flag: untranslated */
+"Common.burnerLocked" = "Burner is already locked by another process.";
+
+/* File: BlankPanel.m:144 */
+/* Flag: untranslated */
+"BlankPanel.inProcess" = "Blanking in progress. Please wait...";
+
+/* File: BurnProgressController.m:437 */
+/* Flag: untranslated */
+"BurnProgressController.provideTempDir"
+= "You must provide a directory for temporary files.";
+
+/* File: BurnProgressController.m:464 */
+/* Flag: untranslated */
+"BurnProgressController.existsNoDir"
+= "exists but is not a directory. Please choose another directory for temporary files.";
+
+/* File: ConvertAudioHelper.m:138 */
+/* Flag: untranslated */
+"ConvertAudioHelper.noProgram" = "Audio converter could not be found.";
+
+/* File: ConvertAudioHelper.m:212 */
+/* Flag: untranslated */
+"ConvertAudioHelper.success" = "Audio tracks converted successfully.";
+
+/* File: CreateISOHelper.m:84 */
+/* Flag: untranslated */
+"CreateISOHelper.noProgram"
+= "Program to create ISO images could not be found.";
+
+/* File: CreateISOHelper.m:133 */
+/* Flag: untranslated */
+"CreateISOHelper.imageExists"
+= "Image file %@ already exists. What shall I do?";
+
+/* File: OpenISOImagePanel.m:179 */
+/* Flag: untranslated */
+"OpenISOImagePanel.select" = "Select ISO Image";
+
+/* File: ParametersWindowController.m:65 */
+/* Flag: untranslated */
+"ParametersWindowController.title" = "Parameters Panel";
+
+/* File: ParametersWindowController.m:113 */
+/* Flag: untranslated */
+"ParametersWindowController.cancelled"
+= "Burning cancelled on parameter entry.";
+
+/* File: Project.m:77 */
+/* Flag: untranslated */
+"Project.noFilename" = "Could not burn image. No filename was given.";
+
+/* File: Project.m:82 */
+/* Flag: untranslated */
+"Project.notExist" = "Could not burn image. %@ does not exist.";
+
+/* File: Project.m:88 */
+/* Flag: untranslated */
+"Project.isDir" = "Could not burn image. %@ is a directory.";
+
+/* File: ProjectWindowController+DnD.m:419 */
+/* Flag: untranslated */
+"ProjectWindowController.addingAudioCD"
+= "ProjectWindowController.addingAudioCD";
+
+/* File: ProjectWindowController.m:335 */
+/* Flag: untranslated */
+"ProjectWindowController.addingFiles" = "Adding files to CD. Please wait...";
+
+/* File: ProjectWindowController.m:337 */
+/* Flag: untranslated */
+"ProjectWindowController.addingAudio"
+= "Adding sound files to CD. Please wait...";
+
+/* File: ToolSelector.m:59 */
+/* Flag: untranslated */
+"ToolSelector.grabAudio" = "Grab audio CDs";
+
+/* File: ToolSelector.m:69 */
+/* Flag: untranslated */
+"ToolSelector.convertAudio" = "Convert audio (%@)";
+
+
+/*** Strings from AppController.m ***/
+/* File: AppController.m:564 */
+"AppController.arrange" = "Arranger";
+/* File: AppController.m:545 */
+"AppController.blankItem" = "Effacer un CD-RW";
+/* File: AppController.m:453 */
+"AppController.burnCDItem" = "Graver un CD";
+/* File: AppController.m:541 */
+"AppController.burnISOItem" = "Graver un Image ISO";
+/* File: AppController.m:703 */
+"AppController.checkBundles" = "Recherche de bundles \u00e0 partir de %@";
+/* File: AppController.m:470 */
+"AppController.clearItem" = "Effacer";
+/* File: AppController.m:435 */
+"AppController.compilMenu" = "CD Composition";
+/* File: AppController.m:549 */
+"AppController.consoleItem" = "Console";
+/* File: AppController.m:498 */
+"AppController.copyItem" = "Copier";
+/* File: AppController.m:456 */
+"AppController.createISOItem" = "Cr\u00e9er une image ISO";
+/* File: AppController.m:495 */
+"AppController.cutItem" = "Couper";
+/* File: AppController.m:504 */
+"AppController.deleteItem" = "Supprimer";
+/* File: AppController.m:489 */
+"AppController.editMenu" = "Edition";
+/* File: AppController.m:421 */
+"AppController.helpItem" = "Aide...";
+/* File: AppController.m:415 */
+"AppController.infoItem" = "Panneaux d'informations...";
+/* File: AppController.m:409 */
+"AppController.infoMenu" = "Information";
+/* File: AppController.m:524 */
+"AppController.inspMenu" = "Inspecteurs";
+/* File: AppController.m:744 */
+"AppController.loadBundle" = "Le bundle est charg\u00e9 \u00e0 partir de %@";
+/* File: AppController.m:145 */
+"AppController.loaded" = "Burn charg\u00e9.";
+/* File: AppController.m:567 */
+"AppController.miniaturize" = "Miniaturiser";
+/* File: AppController.m:444 */
+"AppController.newItem" = "Nouveau";
+/* File: AppController.m:441 */
+"AppController.openItem" = "Ouvrir";
+/* File: AppController.m:501 */
+"AppController.pasteItem" = "Coller";
+/* File: AppController.m:418 */
+"AppController.prefsItem" = "Pr\u00e9f\u00e9rences...";
+/* File: AppController.m:463 */
+"AppController.recentItem" = "R\u00e9cemments ouverts";
+/* File: AppController.m:450 */
+"AppController.saveAsItem" = "Enregistrer Sous...";
+/* File: AppController.m:447 */
+"AppController.saveItem" = "Enregistrer";
+/* File: AppController.m:517 */
+"AppController.toolsMenu" = "Outils";
+/* File: AppController.m:570 */
+"Common.close" = "Fermer";
+/* File: AppController.m:587 */
+"Common.hide" = "Masquer";
+/* File: AppController.m:180 */
+"Common.media" = "M\u00e9dias";
+/* File: AppController.m:590 */
+/* File: AppController.m:156 */
+"Common.quit" = "Quitter";
+/* File: AppController.m:576 */
+"Common.services" = "Services";
+/* File: AppController.m:558 */
+"Common.windows" = "Fen\u00e8tres";
+
+
+/*** Strings from BlankPanel.m ***/
+/* File: BlankPanel.m:158 */
+/* File: BlankPanel.m:157 */
+"BlankPanel.error" = "L'effacement du disque CD-RW a \u00e9chou\u00e9.";
+/* File: BlankPanel.m:154 */
+/* File: BlankPanel.m:153 */
+"BlankPanel.success" = "Succ\u00e8s en effacement du CD-RW.";
+
+
+/*** Strings from BurnCDHelper.m ***/
+/* File: BurnCDHelper.m:186 */
+"BurnCDHelper.CDTotal" = "Total du CD";
+/* File: BurnCDHelper.m:206 */
+"BurnCDHelper.fixatingCD" = "Cl\u00f4ture du CD. Patientez vous s.v.p...";
+/* File: BurnCDHelper.m:90 */
+"BurnCDHelper.noFiles"
+= "Les fichiers suivant n'ont pu \u00e8tre trouv\u00e9s:";
+/* File: BurnCDHelper.m:66 */
+"BurnCDHelper.noProgram"
+= "Le programme permettant de graver n'a pu \u00e8tre trouv\u00e9.";
+/* File: BurnCDHelper.m:175 */
+/* File: BurnCDHelper.m:108 */
+"BurnCDHelper.settingUp"
+= "Mise en place du process de gravure. Patientez vous s.v.p...";
+/* File: BurnCDHelper.m:106 */
+"BurnCDHelper.title" = "Gravure du CD...";
+
+
+/*** Strings from BurnProgress.m ***/
+/* File: BurnProgress.m:97 */
+/* File: BurnProgress.m:81 */
+"BurnProgress.prepProcess"
+= "Pr\u00e9paration du process de gravure. Patientez ...";
+/* File: BurnProgress.m:72 */
+"BurnProgress.prepTracks" = "Pr\u00e9paration des pistes...";
+/* File: BurnProgress.m:117 */
+"Common.console" = "Console";
+
+
+/*** Strings from BurnProgressController.m ***/
+/* File: BurnProgressController.m:453 */
+"BurnProgressController.createDirFail"
+= "Erreur en cr\u00e9ation du repertoire.";
+/* File: BurnProgressController.m:414 */
+"BurnProgressController.noMoreTracks" = "Il n'y a plus de pistes";
+/* File: BurnProgressController.m:419 */
+/* File: BurnProgressController.m:418 */
+"BurnProgressController.noSuccess"
+= "Le CD n'a pas \u00e9t\u00e9 grav\u00e9 avec succes.";
+/* File: BurnProgressController.m:289 */
+"BurnProgressController.reallyStop"
+= "Souhaitez vous vraiment arr\u00e8ter le process ?";
+/* File: BurnProgressController.m:422 */
+/* File: BurnProgressController.m:421 */
+"BurnProgressController.success"
+= "Le CD a \u00e9t\u00e9 grav\u00e9 avec succ\u00e8s.";
+/* File: BurnProgressController.m:411 */
+"Common.finished" = "Fini";
+
+
+/*** Strings from ConvertAudioHelper.m ***/
+/* File: ConvertAudioHelper.m:221 */
+"ConvertAudioHelper.allTracks" = "Tous les pistes";
+/* File: ConvertAudioHelper.m:219 */
+"ConvertAudioHelper.preparing" = "Pr\u00e9paration du %@ tracks...";
+
+
+/*** Strings from CreateISOHelper.m ***/
+/* File: CreateISOHelper.m:134 */
+"CreateISOHelper.createNew" = "Cr\u00e9er une image nouveau";
+/* File: CreateISOHelper.m:275 */
+"CreateISOHelper.creatingImage" = "Cr\u00e9ation de l'image ISO";
+/* File: CreateISOHelper.m:117 */
+"CreateISOHelper.noFiles"
+= "Les fichiers suivant n'ont pu \u00e8tre trouv\u00e9s:";
+/* File: CreateISOHelper.m:134 */
+"CreateISOHelper.overwrite" = "Recouvre-la";
+/* File: CreateISOHelper.m:192 */
+"CreateISOHelper.settingUp"
+= "Mise en place du process de cr\u00e9ation de l'image. Patientez vous s.v.p...";
+/* File: CreateISOHelper.m:190 */
+"CreateISOHelper.title" = "Cr\u00e9ation de l'image ISO...";
+/* File: CreateISOHelper.m:134 */
+"CreateISOHelper.useImage" = "Utilise cette image";
+
+
+/*** Strings from DriversPrefs.m ***/
+/* File: DriversPrefs.m:243 */
+/* File: DriversPrefs.m:150 */
+"Common.default" = "D\u00e9faut";
+/* File: DriversPrefs.m:86 */
+"Drivers.title" = "Pilotes";
+
+
+/*** Strings from ExtProgressIndicator.m ***/
+/* File: ExtProgressIndicator.m:176 */
+"Common.0MB" = "0,00 Mo";
+
+
+/*** Strings from ExtendedOutlineView.m ***/
+/* File: ExtendedOutlineView.m:234 */
+"Common.length" = "Taille";
+/* File: ExtendedOutlineView.m:214 */
+"Common.nr" = "No";
+/* File: ExtendedOutlineView.m:224 */
+"Common.track" = "Piste";
+
+
+/*** Strings from Functions.m ***/
+/* File: Functions.m:205 */
+"Functions.errorAudioCD"
+= "Erreur en chargement du AudioCD.bundle.\nV\u00e9rifiez que CDPlayer.app est install\u00e9 correctement.";
+/* File: Functions.m:191 */
+"Functions.failedAudioCD"
+= "Le bundle AudioCD n'a pas pu \u00e8tre charg\u00e9 \u00e0 partir de %@.";
+/* File: Functions.m:188 */
+"Functions.loadedAudioCD"
+= "Le bundle AudioCD est charg\u00e9 \u00e0 partir de %@";
+/* File: Functions.m:200 */
+"Functions.notAudioCDProtocol"
+= "La classe principale du AudioCD.bundle se ne conforme \u00e0 AudioCDProtocol.";
+/* File: Functions.m:101 */
+"Functions.notFound" = "Le programme '%@' n'a pu \u00e8tre trouv\u00e9.";
+
+
+/*** Strings from GeneralParameters.m ***/
+/* File: GeneralParameters.m:101 */
+"GeneralParameters.title" = "G\u00e9n\u00e9ral";
+
+
+/*** Strings from GeneralPrefs.m ***/
+/* File: GeneralPrefs.m:93 */
+"GeneralPrefs.title" = "G\u00e9n\u00e9ral";
+
+
+/*** Strings from GrabAudioCDHelper.m ***/
+/* File: GrabAudioCDHelper.m:259 */
+"GrabAudioCDHelper.CDTitle" = "Titre du CD: %@ - %@";
+/* File: GrabAudioCDHelper.m:249 */
+"GrabAudioCDHelper.grabbing" = "Extraction du CD \'%@\'.";
+/* File: GrabAudioCDHelper.m:212 */
+"GrabAudioCDHelper.insertCD" = "Ins\u00e9rez le CD suivant:\n%@ - %@.";
+/* File: GrabAudioCDHelper.m:110 */
+"GrabAudioCDHelper.noProgram"
+= "Extracteur audio n'a pu \u00e8tre trouv\u00e9.";
+/* File: GrabAudioCDHelper.m:217 */
+"GrabAudioCDHelper.reallyStop"
+= "Souhaitez vous vraiment arr\u00e8ter le process ?";
+/* File: GrabAudioCDHelper.m:241 */
+"GrabAudioCDHelper.success"
+= "L'extraction du CD s'est d\u00e9roul\u00e9e avec succ\u00e8s.";
+/* File: GrabAudioCDHelper.m:257 */
+"GrabAudioCDHelper.title" = "Extraction du CD...";
+
+
+/*** Strings from Inspectors/AudioCDInspector.m ***/
+/* File: Inspectors/AudioCDInspector.m:104 */
+"AudioCDInspector.noCD" = "Aucun CD audio";
+/* File: Inspectors/AudioCDInspector.m:101 */
+"AudioCDInspector.numCDs" = "%d CDs audios";
+
+
+/*** Strings from Inspectors/MediaInspector.m ***/
+/* File: Inspectors/MediaInspector.m:66 */
+"Common.pleaseWait" = "Patientez vous, s.v.p.";
+
+
+/*** Strings from Inspectors/TrackInspector.m ***/
+/* File: Inspectors/TrackInspector.m:102 */
+"Common.data" = "Donn\u00e9es";
+/* File: Inspectors/TrackInspector.m:165 */
+"Common.noTracks" = "Pas de pistes";
+/* File: Inspectors/TrackInspector.m:273 */
+"Common.nrTracks" = "%i pistes";
+
+
+/*** Strings from OpenISOImagePanel.m ***/
+/* File: OpenISOImagePanel.m:73 */
+"OpenISOImagePanel.name" = "Nom:";
+
+
+/*** Strings from PreferencesWindowController.m ***/
+/* File: PreferencesWindowController.m:97 */
+"PreferencesWindowController.title" = "Pr\u00e9f\u00e9rences";
+
+
+/*** Strings from Project.m ***/
+/* File: Project.m:248 */
+"Project.addingTrackFail" = "L'adjonction du fichier %@ a \u00e9chou\u00e9.";
+/* File: Project.m:444 */
+"Project.unknownType"
+= "Erreur en chargement du fichier. Le type est inconnu.";
+/* File: Project.m:560 */
+"Project.unknownVers"
+= "Erreur en chargement du fichier. Le version est inconnu.";
+
+
+/*** Strings from ProjectWindowController+DnD.m ***/
+/* File: ProjectWindowController+DnD.m:543 */
+"ProjectWindowController.addTrackFail"
+= "L'adjonction de la piste %@ a \u00e9chou\u00e9.";
+
+
+/*** Strings from ProjectWindowController+OlvDelegate.m ***/
+/* File: ProjectWindowController+OlvDelegate.m:171 */
+/* File: ProjectWindowController+OlvDelegate.m:63 */
+"ProjectWindowController.audioTracks" = "Pistes audio";
+/* File: ProjectWindowController+OlvDelegate.m:186 */
+/* File: ProjectWindowController+OlvDelegate.m:64 */
+"ProjectWindowController.dataTracks" = "Pistes de Donn\u00e9es";
+
+
+/*** Strings from ProjectWindowController.m ***/
+/* File: ProjectWindowController.m:204 */
+"Add Audio Tracks..." = "Ajouter des pistes audio...";
+/* File: ProjectWindowController.m:200 */
+"Add Files..." = "Ajouter des fichiers...";
+/* File: ProjectWindowController.m:504 */
+"Add audio files..." = "Ajouter des fichiers audio...";
+/* File: ProjectWindowController.m:220 */
+"Burn" = "Graver";
+/* File: ProjectWindowController.m:216 */
+"Burn ISO Image" = "Graver un image ISO";
+/* File: ProjectWindowController.m:212 */
+"Create ISO Image" = "Cr\u00e9er un image ISO";
+/* File: ProjectWindowController.m:440 */
+"ProjectWindowController.addCDFail"
+= "L'adjonction du CD %@ a \u00e9chou\u00e9.";
+/* File: ProjectWindowController.m:395 */
+"ProjectWindowController.addDirFail"
+= "L'adjonction du repertoire %@ a \u00e9chou\u00e9.";
+/* File: ProjectWindowController.m:404 */
+"ProjectWindowController.addFileFail"
+= "L'adjonction du fichier %@ a \u00e9chou\u00e9.";
+/* File: ProjectWindowController.m:470 */
+"ProjectWindowController.addFilesTitle" = "Ajouter des fichiers...";
+/* File: ProjectWindowController.m:208 */
+"Remove Selection" = "Supprimer selection";
+
+
+/*** Strings from ToolPanel.m ***/
+/* File: ToolPanel.m:98 */
+/* File: ToolPanel.m:95 */
+/* File: ToolPanel.m:92 */
+"ToolPanel.empty" = "<vide>";
+/* File: ToolPanel.m:177 */
+"ToolPanel.title" = "Outils \u00e0 graver";
+
+
+/*** Strings from ToolSelector.m ***/
+/* File: ToolSelector.m:138 */
+"Common.empty" = "<vide>";
+/* File: ToolSelector.m:49 */
+"ToolSelector.createISO" = "Cr\u00e9er des images ISO";

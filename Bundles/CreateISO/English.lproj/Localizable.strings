@@ -1,0 +1,21 @@
+/***
+English.lproj/Localizable.strings
+updated by make_strings 2011-09-20 10:48:39 +0200
+add comments above this one
+***/
+
+
+/*** Strings from CreateIsoController.m ***/
+/* File: CreateIsoController.m:232 */
+"Cannot access file %@. Ignored." = "Cannot access file %@. Ignored.";
+/* File: CreateIsoController.m:259 */
+"File %@ is of unknown type. Ignored."
+= "File %@ is of unknown type. Ignored.";
+/* File: CreateIsoController.m:273 */
+"Terminating process." = "Terminating process.";
+
+
+/*** Strings from CreateIsoParametersView.m ***/
+/* File: CreateIsoParametersView.m:34 */
+"CreateIso: Could not load nib \"%@\"."
+= "CreateIso: Could not load nib \"%@\".";

@@ -1,0 +1,19 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "loadMedia:"
+	);
+	Super = NSObject;
+    };
+    MediaInspector = {
+	Actions = (
+	    "loadMedia:"
+	);
+	Outlets = (
+	    window,
+	    mediaTable
+	);
+	Super = NSObject;
+    };
+}

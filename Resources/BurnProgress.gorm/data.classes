@@ -1,0 +1,25 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    BurnProgressController = {
+	Actions = (
+	    "closeClicked:",
+	    "abortClicked:"
+	);
+	Outlets = (
+	    abortButton,
+	    closeButton,
+	    entireLabel,
+	    entireProgress,
+	    trackLabel,
+	    trackProgress
+	);
+	Super = NSWindowController;
+    };
+    FirstResponder = {
+	Actions = (
+	    "closeClicked:",
+	    "abortClicked:"
+	);
+	Super = NSObject;
+    };
+}

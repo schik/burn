@@ -1,0 +1,27 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "orderFrontFontPanel:"
+	);
+	Super = NSObject;
+    };
+    GeneralParameters = {
+	Actions = (
+	    "chooseClicked:"
+	);
+	Outlets = (
+	    ejectCheckBox,
+	    speedPopUp,
+	    testCheckBox,
+	    window,
+	    keepISOCheckBox,
+	    keepWavCheckBox,
+	    tempDirField,
+	    overburnCheckBox,
+	    devicePopUp,
+	    openConsoleCheckBox
+	);
+	Super = NSObject;
+    };
+}

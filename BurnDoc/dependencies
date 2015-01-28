@@ -1,0 +1,11 @@
+BurnDoc/dependencies: \
+	Functions.h \
+	Project.h \
+	Functions.m \
+	Project.m \
+	OpenISOImagePanel.h \
+	OpenISOImagePanel.m \
+	BurnProgress.h \
+	BurnProgress.m \
+	ConsoleWindow.h \
+	ConsoleWindow.m

@@ -1,0 +1,26 @@
+/***
+French.lproj/Localizable.strings
+updated by make_strings 2011-09-20 10:48:39 +0200
+add comments above this one
+***/
+
+
+/*** Unmatched/untranslated keys ***/
+
+/* File: CreateIsoController.m:232 */
+/* Flag: untranslated */
+"Cannot access file %@. Ignored." = "Cannot access file %@. Ignored.";
+
+
+/*** Strings from CreateIsoController.m ***/
+/* File: CreateIsoController.m:259 */
+"File %@ is of unknown type. Ignored."
+= "Le type du fichier %@ est inconnu. Ignor\u00e9.";
+/* File: CreateIsoController.m:273 */
+"Terminating process." = "Terminaison du processus.";
+
+
+/*** Strings from CreateIsoParametersView.m ***/
+/* File: CreateIsoParametersView.m:34 */
+"CreateIso: Could not load nib \"%@\"."
+= "CreateIso: Le chargement du nib \"%@\" a \u00e9chou\u00e9.";

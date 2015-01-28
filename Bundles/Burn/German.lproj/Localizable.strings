@@ -1,0 +1,24 @@
+/***
+German.lproj/Localizable.strings
+updated by make_strings 2011-09-20 10:54:38 +0200
+add comments above this one
+***/
+
+
+/*** Strings from BurnController.m ***/
+/* File: BurnController.m:96 */
+"No burning device specified." = "Kein CD Brenner definiert.";
+/* File: BurnController.m:97 */
+"Process will be stopped." = "Vorgang wird angehalten.";
+/* File: BurnController.m:185 */
+"Terminating process." = "Beende Vorgang.";
+/* File: BurnController.m:350 */
+"The disk in '%@' cannot be erased."
+= "Die CD in '%@' kann nicht gel\u00f6scht werden.";
+/* File: BurnController.m:339 */
+"The disk in '%@' is not an erasable disk."
+= "Die CD in '%@' ist keine wiederbeschreibbare CD.";
+/* File: BurnController.m:329 */
+"There is no disk in '%@'." = "Es ist keine CD in '%@'.";
+/* File: BurnController.m:253 */
+"Unknown" = "Unbekannt";

@@ -1,0 +1,27 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "chooseImageClicked:"
+	);
+	Super = NSObject;
+    };
+    MkIsoFsParametersView = {
+	Actions = (
+	    "chooseImageClicked:"
+	);
+	Outlets = (
+	    rockrCheckBox,
+	    jolietCheckBox,
+	    symlinkCheckBox,
+	    nobakCheckBox,
+	    longNameCheckBox,
+	    dotStartCheckBox,
+	    isoLevelPopUp,
+	    view,
+	    window,
+	    imageNameTextField
+	);
+	Super = NSObject;
+    };
+}

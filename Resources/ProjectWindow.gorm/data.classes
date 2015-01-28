@@ -1,0 +1,37 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    CDLengthIndicator = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSView;
+    };
+    CDOutlineView = {
+	Actions = (
+	);
+	Outlets = (
+	    delegate
+	);
+	Super = NSView;
+    };
+    ExtendedOutlineView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSOutlineView;
+    };
+    ProjectWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	    totalLength,
+	    trackView,
+	    view,
+	    progressLabel,
+	    progress
+	);
+	Super = NSWindowController;
+    };
+}

@@ -1,0 +1,572 @@
+{
+    categories = {
+	Project = {
+	    Audio = Project;
+	    Data = Project;
+	};
+    };
+    category = {
+	"Project(Audio)" = Project;
+	"Project(Data)" = Project;
+    };
+    class = {
+	BurnProgress = BurnProgress;
+	ConsoleWindow = ConsoleWindow;
+	OpenISOImagePanel = OpenISOImagePanel;
+	Project = Project;
+    };
+    classvars = {
+	BurnProgress = {
+	    abort = BurnProgress;
+	    box = BurnProgress;
+	    bufferIndicator = BurnProgress;
+	    bufferLabel = BurnProgress;
+	    details = BurnProgress;
+	    entireLabel = BurnProgress;
+	    entireProgress = BurnProgress;
+	    parent = BurnProgress;
+	    trackLabel = BurnProgress;
+	    trackProgress = BurnProgress;
+	};
+	ConsoleWindow = {
+	    outputWindow = ConsoleWindow;
+	    scrollView = ConsoleWindow;
+	};
+	OpenISOImagePanel = {
+	    openParamsCheckBox = OpenISOImagePanel;
+	};
+	Project = {
+	    allCDs = Project;
+	    audioLength = Project;
+	    audioTracks = Project;
+	    copies = Project;
+	    dataLength = Project;
+	    dataSize = Project;
+	    dataTracks = Project;
+	    eject = Project;
+	    fixate = Project;
+	    keepImages = Project;
+	    keepWavs = Project;
+	    speed = Project;
+	    testOnly = Project;
+	    volumeId = Project;
+	};
+    };
+    function = {
+	LocalLibraryPath = Functions;
+	UserLibraryPath = Functions;
+	audioSizeToFrames = Functions;
+	colorForKey = Functions;
+	convertUserDefaults = Functions;
+	framesToAudioSize = Functions;
+	framesToSeconds = Functions;
+	framesToSize = Functions;
+	framesToString = Functions;
+	getAvailableDrives = Functions;
+	loadAudioCD = Functions;
+	logToConsole = Functions;
+	releaseSharedConsole = Functions;
+	releaseSharedInspectorsWin = Functions;
+	secondsToFrames = Functions;
+	sessionParameters = Functions;
+	sharedConsole = Functions;
+	sharedInspectorsWin = Functions;
+	sizeToFrames = Functions;
+	which = Functions;
+    };
+    ivariable = {
+	abort = {
+	    BurnProgress = BurnProgress;
+	};
+	allCDs = {
+	    Project = Project;
+	};
+	audioLength = {
+	    Project = Project;
+	};
+	audioTracks = {
+	    Project = Project;
+	};
+	box = {
+	    BurnProgress = BurnProgress;
+	};
+	bufferIndicator = {
+	    BurnProgress = BurnProgress;
+	};
+	bufferLabel = {
+	    BurnProgress = BurnProgress;
+	};
+	copies = {
+	    Project = Project;
+	};
+	dataLength = {
+	    Project = Project;
+	};
+	dataSize = {
+	    Project = Project;
+	};
+	dataTracks = {
+	    Project = Project;
+	};
+	details = {
+	    BurnProgress = BurnProgress;
+	};
+	eject = {
+	    Project = Project;
+	};
+	entireLabel = {
+	    BurnProgress = BurnProgress;
+	};
+	entireProgress = {
+	    BurnProgress = BurnProgress;
+	};
+	fixate = {
+	    Project = Project;
+	};
+	keepImages = {
+	    Project = Project;
+	};
+	keepWavs = {
+	    Project = Project;
+	};
+	openParamsCheckBox = {
+	    OpenISOImagePanel = OpenISOImagePanel;
+	};
+	outputWindow = {
+	    ConsoleWindow = ConsoleWindow;
+	};
+	parent = {
+	    BurnProgress = BurnProgress;
+	};
+	scrollView = {
+	    ConsoleWindow = ConsoleWindow;
+	};
+	speed = {
+	    Project = Project;
+	};
+	testOnly = {
+	    Project = Project;
+	};
+	trackLabel = {
+	    BurnProgress = BurnProgress;
+	};
+	trackProgress = {
+	    BurnProgress = BurnProgress;
+	};
+	volumeId = {
+	    Project = Project;
+	};
+    };
+    method = {
+	"+openISOImagePanel" = {
+	    OpenISOImagePanel = OpenISOImagePanel;
+	};
+	"+singleInstance" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	    "(BurnerModule)" = ExternalTools;
+	    "(CreateISOModule)" = ExternalTools;
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-addCD:withID:atPosition:" = {
+	    Project = Project;
+	};
+	"-addTrackFromFile:" = {
+	    Project = Project;
+	};
+	"-allCddbIds" = {
+	    Project = Project;
+	};
+	"-audioLength" = {
+	    Project = Project;
+	};
+	"-blankCDRW:withParameters:" = {
+	    "(BurnerModule)" = ExternalTools;
+	};
+	"-bufferIndicator" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-burnCDFromImage:andAudioTracks:withParameters:" = {
+	    "(BurnerModule)" = ExternalTools;
+	};
+	"-burnToCD" = {
+	    Project = Project;
+	};
+	"-cdForKey:" = {
+	    Project = Project;
+	};
+	"-cddbIdAtIndex:" = {
+	    Project = Project;
+	};
+	"-cleanUp" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	    "(BurnerModule)" = ExternalTools;
+	    "(CreateISOModule)" = ExternalTools;
+	};
+	"-createISOImage:withTracks:toFile:withParameters:" = {
+	    "(CreateISOModule)" = ExternalTools;
+	};
+	"-dataLength" = {
+	    Project = Project;
+	};
+	"-dataRepresentationOfType:" = {
+	    Project = Project;
+	};
+	"-dataSize" = {
+	    Project = Project;
+	};
+	"-dealloc" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-deleteTrack:" = {
+	    Project = Project;
+	};
+	"-deleteTrackOfType:atIndex:" = {
+	    Project = Project;
+	};
+	"-drivers" = {
+	    "(BurnerModule)" = ExternalTools;
+	};
+	"-ejectCD:" = {
+	    "(BurnerModule)" = ExternalTools;
+	};
+	"-enableAbort:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-entireProgress" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-fileTypes" = {
+	    "(BurnerModule)" = ExternalTools;
+	};
+	"-getStatus" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	    "(BurnerModule)" = ExternalTools;
+	    "(CreateISOModule)" = ExternalTools;
+	};
+	"-grabTrack:fromDevice:toFile:withParameters:" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	};
+	"-hasChangesPending" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-image" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-init" = {
+	    OpenISOImagePanel = OpenISOImagePanel;
+	    Project = Project;
+	};
+	"-initProgressBar:From:To:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-initWithNibName:" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-initializeFromDefaults" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-insertTrack:asType:atPosition:" = {
+	    Project = Project;
+	};
+	"-insertTrackFromFile:asType:atPosition:" = {
+	    Project = Project;
+	};
+	"-insertTracksFromDirectory:asType:atPosition:recursive:" = {
+	    Project = Project;
+	};
+	"-layoutWindow" = {
+	    BurnProgress = BurnProgress;
+	    ConsoleWindow = ConsoleWindow;
+	};
+	"-loadDataRepresentation:ofType:" = {
+	    Project = Project;
+	};
+	"-makeWindowControllers" = {
+	    Project = Project;
+	};
+	"-mediaInformation:" = {
+	    "(BurnerModule)" = ExternalTools;
+	};
+	"-mustOpenParamsPanel" = {
+	    OpenISOImagePanel = OpenISOImagePanel;
+	};
+	"-name" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	    "(BurnerModule)" = ExternalTools;
+	    "(CreateISOModule)" = ExternalTools;
+	};
+	"-numberOfAudioTracks" = {
+	    Project = Project;
+	};
+	"-numberOfCDs" = {
+	    Project = Project;
+	};
+	"-numberOfDataTracks" = {
+	    Project = Project;
+	};
+	"-numberOfTracks" = {
+	    Project = Project;
+	};
+	"-outputWindow" = {
+	    ConsoleWindow = ConsoleWindow;
+	};
+	"-parameters" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	    "(BurnerModule)" = ExternalTools;
+	    "(CreateISOModule)" = ExternalTools;
+	};
+	"-preferences" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	    "(BurnerModule)" = ExternalTools;
+	    "(CreateISOModule)" = ExternalTools;
+	};
+	"-resetProgressBar:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-saveChanges" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-sessionParameters" = {
+	    Project = Project;
+	};
+	"-setAbortText:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-setBufferLabel:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-setCDInfo:::" = {
+	    Project = Project;
+	};
+	"-setEntireLabel:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-setProgressBar:toValue:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-setProgressBarToMax:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-setSessionParameters:" = {
+	    Project = Project;
+	};
+	"-setTrackLabel:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-setVolumeId:" = {
+	    Project = Project;
+	};
+	"-showConsole:" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-stopBurning:" = {
+	    "(BurnerModule)" = ExternalTools;
+	};
+	"-stopCreatingISOImage:" = {
+	    "(CreateISOModule)" = ExternalTools;
+	};
+	"-stopRipping:" = {
+	    "(AudioRipperModule)" = ExternalTools;
+	};
+	"-title" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-totalLength" = {
+	    Project = Project;
+	};
+	"-trackOfType:atIndex:" = {
+	    Project = Project;
+	};
+	"-trackProgress" = {
+	    BurnProgress = BurnProgress;
+	};
+	"-trackTypeChanged:" = {
+	    Project = Project;
+	};
+	"-view" = {
+	    "(PreferencesModule)" = PreferencesModule;
+	};
+	"-volumeId" = {
+	    Project = Project;
+	};
+    };
+    output = {
+	Burn/ExternalTools.h = (
+	    BurnDoc/ExternalTools.gsdoc
+	);
+	Burn/PreferencesModule.h = (
+	    BurnDoc/PreferencesModule.gsdoc
+	);
+	BurnProgress.h = (
+	    BurnDoc/BurnProgress.gsdoc
+	);
+	ConsoleWindow.h = (
+	    BurnDoc/ConsoleWindow.gsdoc
+	);
+	Functions.h = (
+	    BurnDoc/Functions.gsdoc
+	);
+	OpenISOImagePanel.h = (
+	    BurnDoc/OpenISOImagePanel.gsdoc
+	);
+	Project.h = (
+	    BurnDoc/Project.gsdoc
+	);
+    };
+    protocol = {
+	"(AudioRipperModule)" = ExternalTools;
+	"(BurnerModule)" = ExternalTools;
+	"(CreateISOModule)" = ExternalTools;
+	"(PreferencesModule)" = PreferencesModule;
+    };
+    source = {
+	BurnProgress.h = (
+	    BurnProgress.m
+	);
+	ConsoleWindow.h = (
+	    ConsoleWindow.m
+	);
+	Functions.h = (
+	    Functions.m
+	);
+	OpenISOImagePanel.h = (
+	    OpenISOImagePanel.m
+	);
+	Project.h = (
+	    Project.m
+	);
+    };
+    super = {
+	BurnProgress = NSWindow;
+	ConsoleWindow = NSWindow;
+	OpenISOImagePanel = NSOpenPanel;
+	Project = NSDocument;
+    };
+    title = {
+	Base = Burn.app;
+	BurnProgress = "BurnProgress class documentation";
+	ConsoleWindow = "ConsoleWindow class documentation";
+	ExternalTools = "ExternalTools documentation";
+	Functions = "Functions documentation";
+	OpenISOImagePanel = "OpenISOImagePanel class documentation";
+	PreferencesModule = "PreferencesModule documentation";
+	Project = "Project class documentation";
+    };
+    type = {
+	EBlankingMode = ExternalTools;
+	EProcessStatus = ExternalTools;
+	EnumProgressBars = BurnProgress;
+	SBurnerStatus = ExternalTools;
+	SCreateISOStatus = ExternalTools;
+	SRipperStatus = ExternalTools;
+    };
+    unitmethods = {
+	"(AudioRipperModule)" = {
+	    "+singleInstance" = ExternalTools;
+	    "-cleanUp" = ExternalTools;
+	    "-getStatus" = ExternalTools;
+	    "-grabTrack:fromDevice:toFile:withParameters:" = ExternalTools;
+	    "-name" = ExternalTools;
+	    "-parameters" = ExternalTools;
+	    "-preferences" = ExternalTools;
+	    "-stopRipping:" = ExternalTools;
+	};
+	"(BurnerModule)" = {
+	    "+singleInstance" = ExternalTools;
+	    "-blankCDRW:withParameters:" = ExternalTools;
+	    "-burnCDFromImage:andAudioTracks:withParameters:" = ExternalTools;
+	    "-cleanUp" = ExternalTools;
+	    "-drivers" = ExternalTools;
+	    "-ejectCD:" = ExternalTools;
+	    "-fileTypes" = ExternalTools;
+	    "-getStatus" = ExternalTools;
+	    "-mediaInformation:" = ExternalTools;
+	    "-name" = ExternalTools;
+	    "-parameters" = ExternalTools;
+	    "-preferences" = ExternalTools;
+	    "-stopBurning:" = ExternalTools;
+	};
+	"(CreateISOModule)" = {
+	    "+singleInstance" = ExternalTools;
+	    "-cleanUp" = ExternalTools;
+	    "-createISOImage:withTracks:toFile:withParameters:" = ExternalTools;
+	    "-getStatus" = ExternalTools;
+	    "-name" = ExternalTools;
+	    "-parameters" = ExternalTools;
+	    "-preferences" = ExternalTools;
+	    "-stopCreatingISOImage:" = ExternalTools;
+	};
+	"(PreferencesModule)" = {
+	    "+singleInstance" = PreferencesModule;
+	    "-dealloc" = PreferencesModule;
+	    "-hasChangesPending" = PreferencesModule;
+	    "-image" = PreferencesModule;
+	    "-initWithNibName:" = PreferencesModule;
+	    "-initializeFromDefaults" = PreferencesModule;
+	    "-saveChanges" = PreferencesModule;
+	    "-title" = PreferencesModule;
+	    "-view" = PreferencesModule;
+	};
+	BurnProgress = {
+	    "-bufferIndicator" = BurnProgress;
+	    "-enableAbort:" = BurnProgress;
+	    "-entireProgress" = BurnProgress;
+	    "-initProgressBar:From:To:" = BurnProgress;
+	    "-layoutWindow" = BurnProgress;
+	    "-resetProgressBar:" = BurnProgress;
+	    "-setAbortText:" = BurnProgress;
+	    "-setBufferLabel:" = BurnProgress;
+	    "-setEntireLabel:" = BurnProgress;
+	    "-setProgressBar:toValue:" = BurnProgress;
+	    "-setProgressBarToMax:" = BurnProgress;
+	    "-setTrackLabel:" = BurnProgress;
+	    "-showConsole:" = BurnProgress;
+	    "-trackProgress" = BurnProgress;
+	};
+	ConsoleWindow = {
+	    "-layoutWindow" = ConsoleWindow;
+	    "-outputWindow" = ConsoleWindow;
+	};
+	OpenISOImagePanel = {
+	    "+openISOImagePanel" = OpenISOImagePanel;
+	    "-init" = OpenISOImagePanel;
+	    "-mustOpenParamsPanel" = OpenISOImagePanel;
+	};
+	Project = {
+	    "-addTrackFromFile:" = Project;
+	    "-burnToCD" = Project;
+	    "-dataRepresentationOfType:" = Project;
+	    "-deleteTrack:" = Project;
+	    "-deleteTrackOfType:atIndex:" = Project;
+	    "-init" = Project;
+	    "-insertTrack:asType:atPosition:" = Project;
+	    "-insertTrackFromFile:asType:atPosition:" = Project;
+	    "-insertTracksFromDirectory:asType:atPosition:recursive:" = Project;
+	    "-loadDataRepresentation:ofType:" = Project;
+	    "-makeWindowControllers" = Project;
+	    "-numberOfTracks" = Project;
+	    "-sessionParameters" = Project;
+	    "-setSessionParameters:" = Project;
+	    "-setVolumeId:" = Project;
+	    "-totalLength" = Project;
+	    "-trackOfType:atIndex:" = Project;
+	    "-trackTypeChanged:" = Project;
+	    "-volumeId" = Project;
+	};
+	"Project(Audio)" = {
+	    "-addCD:withID:atPosition:" = Project;
+	    "-allCddbIds" = Project;
+	    "-audioLength" = Project;
+	    "-cdForKey:" = Project;
+	    "-cddbIdAtIndex:" = Project;
+	    "-numberOfAudioTracks" = Project;
+	    "-numberOfCDs" = Project;
+	    "-setCDInfo:::" = Project;
+	};
+	"Project(Data)" = {
+	    "-dataLength" = Project;
+	    "-dataSize" = Project;
+	    "-numberOfDataTracks" = Project;
+	};
+    };
+}

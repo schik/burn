@@ -1,0 +1,10 @@
+/***
+English.lproj/Localizable.strings
+updated by make_strings 2011-09-20 10:48:28 +0200
+add comments above this one
+***/
+
+
+/*** Strings from MP3ToWavController.m ***/
+/* File: MP3ToWavController.m:283 */
+"Terminating process." = "Terminating process.";

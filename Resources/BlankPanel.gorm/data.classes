@@ -1,0 +1,26 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    BlankPanel = {
+	Actions = (
+	    "completeBlank:",
+	    "fastBlank:"
+	);
+	Outlets = (
+	    panel,
+	    completeButton,
+	    fastButton,
+	    progressLabel,
+	    progressBar,
+	    writersPopup
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "completeBlank:",
+	    "fastBlank:",
+	    "orderFrontFontPanel:"
+	);
+	Super = NSObject;
+    };
+}

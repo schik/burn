@@ -1,0 +1,48 @@
+CreateIso.bundle
+================
+CreateIso.bundle is a supportig bundle for Burn.app.  It implements the API
+for Burn.app's ISO image creation backends and thus can be used as a direct
+replacement for the built-in MkIsoFs.bundle.  CreateIso.bundle uses libisofs
+and libburn to accomplish the task of creating the CD image.
+
+Requirements
+============
+
+Burn.app
+--------
+As CreateIso.bundle is a suporting bundle for Burn.app you will of course need
+the application. Otherwise the bundle is of no use for you.
+Download the latest version from here:
+http://gsburn.sourceforge.net
+
+libburn/libisofs
+----------------
+libburn is an open-source library for reading, mastering and writing optical
+discs. libisofs is part of the same package and responsible for the creation
+of the ISO image.
+Both libraries are not part of the package, you will need to install it
+separately. You may get the libraries here:
+http://icculus.org/burn
+Mind, that you will need the latest version from CVS. CreateISO.bundle does
+_not_ work with the current release 0.2.
+
+NOTE: AFAIK, libburn currently only works under Linux. Moreober, it can handle
+SCSI devices only at the moment, which is, of course not a problem for
+building an ISO image.
+
+
+Installation
+============
+
+In the bundle's source code directory type:
+
+> make
+> make install
+
+This will install the bundle in a place where it can be automatically found by
+Burn.app.
+
+If, during make, you get an error message saying that 'libburn/libburn.h' or
+'libburn/libisofs' cannot be found you will need to edit the GNUmakefile.
+Search for the definition of the variable 'LIBBURN_INCLUDEDIR' and correct
+the path for your system.
