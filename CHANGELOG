@@ -1,0 +1,317 @@
+Version 0.5.0
+-------------
+
+Changes:
+
+- The project window now uses a confugurable toolbar instead of those
+  two buttons.
+- Files can now be added using the NSOpenPanel. This is handy if you don't
+  use GWorkspace for D'n'D.
+- The parameters dialog is opened always before burning as this is
+  safer. The old parameters may not match your current compilation
+  which could be fatal.
+- The inspectors have undergone a major overhaul:
+  * Besides some visual changes, the track inspector has now an 'Open'
+    button by which the selected track may be opened with its preferred
+    viewer application.
+  * The media and audio cd inspectors now display their data in an outline
+    view, which makes them clearer.
+- The main application and the bundles now use reasonable defaults. Thus the
+  user is no longer forced to run the preferences upon the first start.
+- The hardware detection is now more robust and reliable.
+- D'n'D has been fixed to work with the latest GNUstep.
+- The bundles now have the extension 'burntool' to avoid problems with
+  double loading other bundles, e.g. back.
+- New icons.
+
+Fixed issues:
+- Building and installing has been adapted to the latest GNUstep make.
+- Removed the class 'Image' that was used as 'poseAs' for NSImage. This
+  was a hack because a lot of Gorm files had references to Camaelon's
+  'Image' class. These have been fixed, now.
+- Fixed issues with writing the preferences/parameters back to user
+  defaults database.
+- Lots of other bug fixes, mainly for segfaults.
+
+Version 0.4.1
+-------------
+
+WARNING: Due to the usage of a late version of Gorm you must use GNUstep
+         GUI later than 0.9.3!!!
+
+Changes:
+
+- The cdrecord and cdrdao backends are now able to handle ATAPI devices.
+  This, however, requires fairly recent versions of those tools (see README).
+- Added overburn option for both backends. Currently this must be switched
+  on manually in the parameters dialog. Maybe in the future we may try to
+  detect this automatically.
+- The cdrdao backend bundle is no longer built and installed by default,
+  but must be handled separately. This makes things easier for me :-)
+- The cdrdao backend now knows the method -availableDrives using cdrdao's
+  'scanbus' command.
+- The 'Burn Tools' panel has now moved to the preferences.
+- Split the service 'Burn To CD' into two again: 'Burn To CD' and 'Add To CD'.
+  This gets us rid of the annoying 'do you want to append or create new...'
+  message.
+- ISO image files may now be opened with a double-click or 'gopen' (Burn.app
+  registers for suffix .iso).
+- The miniwindow for the BurnProgress panel now displays the progress.
+- Removed the track types raw-intel and raw-motorola. Noone needs this.
+- Add functionality to plug-in audio converters, i.e. bundles that convert
+  arbitrary audio formats into .wav files.
+- Add a converter bundle for MP3 files. This bundle is part of the CVS, but
+  not of th release package.
+
+Fixed Bugs/Issues:
+- Fixed a bug where the 'burnproof' option for cdrecord was was not written
+  properly to the defaults and thus not used at all.
+
+
+Version 0.4.0
+-------------
+
+Changes:
+
+- Went back to using multiple compilation windows.
+- Burning is no loger modal. All operations not involving the burner
+  stay accessible while burning.
+- Burn ISO images directly from GWorkspace via a service or from
+  within Burn.app.
+- Complete overhaul of the DnD system. We can now also insert a
+  dragged directories contents and we can do so recursively.
+- Paste no longer accepts file names.
+- The burn parameters are now set in the parameters panel
+  instead of the compilation window.
+- The service "Burn to CD" now asks whether to add the tracks
+  to the top most opened compilation or whether to open a new one.
+- Added a new service "Burn ISO Image" accepting the name of an ISO
+  image file.
+- The inspectors' layout changed slightly.
+- New audio CD inspector for source audio CDs.
+- The "Total size" is now displayed inside the size indicator.
+- Redesigned the BlankPanel.
+- Parameters for the programs are now saved in a different format.
+  Each bundle uses its own dictionary inside NSUserDefaults, which
+  is much cleaner (conversion is done on the fly).
+- The mkisofs bundle recognizes some more ISO options.
+
+Fixed Bugs/Issues:
+- The outline view did nor accept tracks that where dragged
+  from another or the same compilation window. The type was not
+  registered.
+- Accepted tracks (by DnD) sometimes got the wrong track type
+  assigned.
+- Removed a bug where open compilation windows were not properly
+  closed by the application, i.e. they did not get the internal
+  'are you all ready to shut down?' message.
+  This message is gone now.
+
+Version 0.3.6
+-------------
+
+Fixed Bugs/Issues:
+
+- Fixed the crash when opening the Preferences panel and two more
+  crashes in ToolPanel and Track, all having to do with writing to the
+  logging console.
+- Fixed the bug where editing a track name would not work.
+- Fixed the bug when Burn crashed upon trying to do more than one Open file'.
+
+Version 0.3.5
+-------------
+
+New features:
+
+- Burn.app employs only one (main) window changing it's contents,
+  when CD descriptions are opened or closed.
+- Gormified main window.
+- Burn accepts tracks being dragged from CDPlayer's track list.
+- Burn uses the TOC service provided by CDPlayer 0.4.0.
+- Burn now offers one service allowing it to add selected audio CD
+  tracks (e.g. CDPlayer 0.4.0) as well as files.
+- The BurnParameters panel went away. Instead the parameters appear
+  now in the main window (most important settings) and in the prefs
+  panels (less important stuff).
+- Preferences panel is now non-modal.
+- The button bar in the main panel has gone.
+- The console window is a text view now, instead of a table.
+- Console messages can now be prioritized.
+- All output (logging and tools' output) now goes to the console.
+- Added a on-line help.
+
+Removed Features:
+
+- As dragging and dropping for CD tracks has been implemented,
+  there is no longer need for an own mechanism to read an audio
+  CD's TOC.
+- Support for Cddb/FreeDB has been removed. As Burn is supposed
+  to no longer handle audio CDs on its own, but to get the related
+  data from CDPlayer (or any other similar app), Cddb support
+  has become obsolete here. It should be handled in the application
+  providing the source track data.
+- The details part of BurnProgress panel has gone (uses console instead).
+
+Fixed Bugs/Issues:
+
+- As console output is decoupled from message sender completely, now,
+  using an update timer, the sporadic crashes while burning should
+  have gone now for good. Methinks, they were related to updating the
+  GUI fron a background thread. Not sure, though.
+- Another bug has gone that was related to re-start the burning. The
+  progress panel left a (static) pointer dangling which was reused when
+  the panel opened again.
+
+
+Version 0.3.0.1
+---------------
+
+Fixed Bugs/Issues:
+
+- All NSScrollViews now get their border explicitly set to make them
+  look good with gnustep-gui 0.8.4.
+- The NSPopUpButtons without an attached action are now enabled.
+- Burn.app would crash when more than one displayed track name was edited
+  in the outline view. This was due to the icons being released too often.
+
+
+Version 0.3.0
+-------------
+
+New features:
+
+- The discrimination between audio and data projects has gone. There
+  are only projects now containing audio as well as data.
+  This means that you cannow create mixed mode CDs (_not_ CDplus!).
+- The track list now uses an outline view instead of a table view.
+  This visually separates data tracks from audio tracks.
+- The track list also employs icons, now, to distiguish between different
+  track types.
+- The CD list has gone from the project view. It is in a separate
+  panel, now.
+- 'Add File(s)' has gone. Files are being added using GWorkspace and Dnd
+  or services.
+- Burn parameters and tool choice are now in two panels floating
+  around on the desktop to make it easier to change settings. All
+  parameters are restored in the next session of Burn.app.
+- The modal burn parameters dialog before burning starts has now
+  gone for good.
+- Several parameters have moved from the settings panels to the new
+  burn parameter panel as they are more burning related and may
+  change pretty often.
+- Burn.app now uses CDPlayer.app's AudioCD.bundle to load audio CDs
+  and read their TOC.
+- Burn.app can now blank CD-RW.
+- Burn.app has two inspectors, Track Inspector and Media Inspector to
+  get additional information about tracks and inserted media.
+- The layout of the installation directories has changed. The more
+  common bundles (burners, ripper) appear in a common place, now
+  (Library/Bundles) while the Burn.app specific bundles still are in
+  Burn.app's installation directory.
+- A lot of GUI stuff has been rewritten as Gorm projects.
+- BurnProgressController is now responsible for removing temporary files.
+  The ripping bundle (CDparanoia.bundle) does no longer have to do this
+  itself.
+- BurnProgressController can now hide the raw output window.
+- Old GSburn project files (.gsaud) will no longer be loaded. Noone used
+  them probably, anyway.
+
+Fixed bugs:
+
+
+Version 0.2.2
+-------------
+
+New features:
+
+Fixed bugs:
+
+- The CDDBID for an audio CD is calculated correctly now. Before
+  the offset for the first track was wrong.
+- Ripper/burner bundles now set their status correctly to isCancelled
+  when the process exited unnormally.
+- Burner bundles now correctly se their status when they must do
+  more than one copy. The status does not go to an intermediate
+  isStopped anymore.
+- The timer handling in AudioProgressController is more robust now.
+
+Version 0.2.1
+-------------
+
+New features:
+
+- Whole directories containing audio files can now be dropped
+  onto the audio project window. All audio files are added to
+  project.
+- GSburn.app provides now two services for creating a new
+  project from the selected audio files and adding the selected
+  audio files to the top most open project.
+- GSburn.app now creates one subdirectory for each CD and stores
+  the ripped tracks there instead of using one huge storage for all.
+- FreeDB info can now be retrieved automatically for the selected CD.
+- It is possible now to switch off automatic FreeDB access on
+  loading a CD.
+- A small animation now shows the progress while loading CD and
+  accessing FreeDB.
+- The Cdrdao.bundle now accepts .au files. Those files are converted
+  to .wav files before they are burned. The .wav are removed afterwards.
+- Both burning bundles allow .cdr files.
+- Added NSIcon property for audio project file type (.gsaud).
+- Added/changed a couple of icons.
+
+Fixed Bugs:
+
+- The burn progress panel no longer closes after pressing the
+  'Cancel' button, but stays open until the user clicks 'Close'.
+  Thus you can check the output messages.
+- The output view now works again with gnustep-gui 0.8.2.
+
+
+Version 0.2.0
+-------------
+
+New features:
+
+- All external tools are wrapped in bundles, now.
+- New and improved progress panel. Panel now shows
+  not only disk and track progress, but also buffer
+  fill level for burning and output of external tools.
+- Files can now be added to a project using drag-and-drop
+  from GWorkspace.
+- Reordering of tracks can now be done using drag-and-drop.
+- Tracks can be copied between projects using drag-and-drop.
+- Tracks can now also be moved using cut/copy/paste. This works
+  in the same project as well as between projects.
+- CDDB/FreeDB support usinf Yen-Ju Chen's Cddb.bundle.
+- Several new icons.
+- Partial French localisation.
+- Partial documentation for the classes.
+
+Fixed Bugs:
+
+- Track duration is now correctly displayed in MSF format.
+
+
+Version 0.1.1
+-------------
+
+New Features:
+
+- Burning of audio tracks with cdrdao and cdrecord.
+- Editing of track titles, cd titles, and artists in
+  project window.
+
+Fixed Bugs:
+
+- 'Project - Save As...' works now without the project
+  being edited.
+
+
+Version 0.1.0
+-------------
+
+Initial version. Features:
+
+- Grabbing of audio tracks with cdparanoia.
+- Burning of audio tracks with cdrecord.
+- Burn using DAO and TAO.

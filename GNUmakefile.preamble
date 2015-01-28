@@ -1,0 +1,12 @@
+#
+#  Makefile.preamble for Burn.app
+#
+#  Author: Andreas Heppel <aheppel@web.de>
+#
+#   Makefile.preamble
+#
+#   Project specific makefile variables, and additional
+#
+#   Do not put any Makefile rules in this file, instead they should
+#   be put into Makefile.postamble.
+#

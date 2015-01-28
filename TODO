@@ -1,0 +1,37 @@
+The following list contains open issues for Burn.app. It is sorted in
+a somewhat prioritised order.
+
+o libburn/libisofs backend
+
+o libparanoia backend to replace cdparanoia backend
+  (was: Develop and implement an interface and common ripping bundle for
+        Encod ! and Burn.app.)
+
+----> Here we release 0.4.2. The rest on this list is for later versions.
+
+o Write conversion backends for Ogg/Vorbis to be able to treat them
+  as music and not only data.
+
+o Display an indicator in the compilation window when burning process
+  is running for this compilation.
+
+o Allow muti-session disks to be created.
+
+o The same file may not be inserted more than once to a CD compilation.
+  mkisofs will make trouble.
+
+o Track inspector should show the CD name instead of CDDB ID (if possible).
+
+o Improve handling of multiple tracks in track inspector.
+
+o Copy on-the-fly.
+
+o Remove CD info from Project and put it into a separate database. Thus,
+  we have immediate access from everywhere in the app to CD info.
+
+o Use libaudiofile for reading an audio file's header data.
+
+o Clean up the code for duration and size handling of Track. Currently
+  we need ugly conversions everywhere.
+
+o Log output to file for post-mortem debugging.

@@ -1,0 +1,7 @@
+- When trying to get media information from a CD-ROM, cdrecord
+  and cdrdao backends crash. Might be a problem parsing the output.
+
+- When copying tracks from so-called 'enhanced audio CDs' (e.g.
+  The Tea Party - Alhambra) the length of the first track is not
+  correctly displayed. It includes the length of the data track.
+  However, ripping and burning works.

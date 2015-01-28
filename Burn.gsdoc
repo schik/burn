@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE gsdoc PUBLIC "-//GNUstep//DTD gsdoc 0.6.7//EN" "http://www.gnustep.org/gsdoc-0_6_7.xml">
+<gsdoc base="Base">
+  <head>
+    <title>Burn.app</title>
+    <author name="Andreas Heppel">
+      <email address="aheppel@web.de"/>
+      <url url="http://www.andreasheppel.de"/>
+    </author>
+    <version>$Revision: 1.1 $</version>
+    <date>$Date: 2004/04/21 11:50:38 $</date>
+  </head>
+  <body>
+    <chapter>
+      <heading>What is Burn.app</heading>
+      <p>
+	Burn.app is a GNUstep based CD burning program for GNU/Linux.
+	It serves as front-end for Joerg Schilling's cdrtools, cdrdao, and cdparanoia.
+	You will no longer need to remember ugly command line parameters for
+	cdrecord or write shell scripts. With Burn.app you compile your CD by
+	point-and-click operation and save your projects for later reuse. Burn.app
+	will hide as many settings as possible from you, thus making it very easy
+	and user-friendly to create your own CDs.
+      </p>
+      <section>
+	<heading>Features</heading>
+	<p>
+	</p>
+	<subsect>
+	  <heading>Audio CDs</heading>
+	  <p>
+	  </p>
+	  <deflist>
+	    <term>Term 1</term>
+	    <desc>
+	      Description
+	    </desc>
+	    <term>Term 2</term>
+	    <desc>
+	      Description
+	    </desc>
+	  </deflist>
+	</subsect>
+      </section>
+    </chapter>
+    <chapter>
+      <heading>Functional description</heading>
+      <p>The following lists the available system documentation.</p>
+      <index scope="project" type="title" />
+        <index scope="project" type="class" />
+        <index scope="project" type="protocol" />
+        <index scope="project" type="function" />
+    </chapter>
+  </body>
+</gsdoc>

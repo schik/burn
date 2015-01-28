@@ -1,0 +1,20 @@
+Main author is Andreas Heppel <aheppel@web.de>.
+
+French localization is done by Fabien Vallon and Stéphane Peron.
+
+Special thanks to Fabien Vallon for his valuable advice on user
+interface issues and technical support.
+
+More thanks go to Martin Brecher for his not less valuable advice
+on usability issues.
+
+Lutz Bichler provided the basic implementation for CDrecordController's
+- (NSArray *) availableDrives; Many, many thanks.
+
+Jens Jahnke provided the source RPMs for Fedora. Thank you, too.
+
+Thanks for Yen-Ju Chen for his cddb/freedb bundle.
+
+I have to also thank Ludovic Marcotte for his wonderful GNUMail.app
+(http://www.collaboration-world.com) which gave me a lot insight into how
+GNUstep works and also lots of design ideas.
