@@ -21,6 +21,10 @@ CDrecord_PRINCIPAL_CLASS = \
 
 ADDITIONAL_OBJCFLAGS = -Wall
 
+ifeq ($(wodim),yes)
+ADDITIONAL_OBJCFLAGS += -DWODIM
+endif
+
 ADDITIONAL_INCLUDE_DIRS += -I../.. -I../../Burn/
 
 CDrecord_LANGUAGES=English German French

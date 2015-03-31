@@ -85,8 +85,6 @@ typedef enum {
 
 - (void) getCDrecordDrivers;
 
-- (BOOL) isWodim: (NSString *) path;
-
 @end
 
 #endif

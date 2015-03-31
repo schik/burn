@@ -604,23 +604,4 @@ NSString *writemodes[] = {
                     userInfo: [NSDictionary dictionaryWithObject: outLine forKey: @"Output"]];
 }
 
-- (BOOL) isWodim: (NSString *) path
-{
-    NSDictionary *attrs;
-    NSString *fileType;
-    NSString *fname;
-
-    NSFileManager *fm = [NSFileManager defaultManager];
-    attrs = [fm fileAttributesAtPath: path traverseLink: NO];
-    if (nil == attrs) {
-        return NO;
-    }
-    fileType = [attrs fileType];
-    if ([fileType isEqualToString: NSFileTypeSymbolicLink] == YES) {
-        path = [fm pathContentOfSymbolicLinkAtPath: path];
-    }
-    fname = [path lastPathComponent];
-    return [fname isEqualToString: @"wodim"];
-}
-
 @end

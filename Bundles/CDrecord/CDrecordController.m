@@ -136,6 +136,158 @@ static CDrecordController *singleInstance = nil;
     return result;
 }
 
+#ifdef WODIM
+
+- (NSDictionary *) mediaInformationForDevice: (NSString *) device
+                                  parameters: (NSDictionary *) parameters
+{
+	int i, count;
+	NSString *cdrecord;
+	NSMutableArray *cdrArgs;
+	NSPipe *stdOut;
+	NSArray *cdrOutput;
+	NSString *outLine;
+
+	// cdrecord does not deliver useful information about
+	// the media on my drive, thus I don't know the output
+	// preset the dictionary with some defaults
+	NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+									_(@"Unknown"), @"type",
+									@"n/a", @"vendor",
+									@"n/a", @"speed",
+									@"n/a", @"capacity",
+									@"n/a", @"empty",
+									@"n/a", @"remCapacity",
+									@"n/a", @"sessions",
+									@"n/a", @"appendable", nil];
+
+
+	cdrecord = [[parameters objectForKey: @"CDrecordParameters"]
+                    objectForKey: @"Program"];
+
+    if (!checkProgram(cdrecord))
+        return info;
+
+    cdrArgs = [NSMutableArray arrayWithObjects: @"-v", nil];
+	NS_DURING
+        [self addDevice: device
+          andParameters: parameters
+            toArguments: cdrArgs];
+	NS_HANDLER
+		[self sendOutputString: [NSString stringWithFormat: @"Error: %@ -> %@",
+												[localException name],
+												[localException reason]] raw: NO];
+		NS_VALRETURN(nil);
+	NS_ENDHANDLER
+
+    [cdrArgs addObject: @"-atip"];
+
+	// set up cdrecord task
+	cdrTask = [[NSTask alloc] init];
+	stdOut = [[NSPipe alloc] init];
+
+	[cdrTask setLaunchPath: cdrecord];
+
+	[cdrTask setArguments: cdrArgs];
+	[cdrTask setStandardOutput: stdOut];
+	[cdrTask setStandardError: stdOut];
+
+	[self sendOutputString: [NSString stringWithFormat: _(@"Launching %@ %@"),
+										cdrecord, [cdrArgs componentsJoinedByString: @" "]] raw: NO];
+	[cdrTask launch];
+
+	[cdrTask waitUntilExit];
+
+	/*
+	 * If cdrecord did not terminate gracefully we stop the whole affair.
+	 * We delete in any case the actual (not finished) file.
+	 */
+	{
+        int termStatus = [cdrTask terminationStatus];	// FreeBSD needs an lvalue for the WIF* macros
+    	if ((WIFEXITED(termStatus) == 0)
+	    		|| WIFSIGNALED(termStatus)) {
+		    [info setObject: _(@"Unknown") forKey: @"type"];
+    		return info;
+        }
+	}
+
+	cdrOutput = [[[NSString alloc] initWithData: [[stdOut fileHandleForReading] availableData]
+									encoding: NSISOLatin1StringEncoding]
+					componentsSeparatedByString: @"\n"];
+
+	count = [cdrOutput count];
+
+	/*
+	 * Skip the first line in output. It contains only header data.
+	 */
+	for (i = 1; i < count; i++) {
+		NSRange range;
+		outLine = [cdrOutput objectAtIndex: i];
+
+        // wodim is rather stupid as it can only read ATIP info, which
+        // itself does not contain info about whether the disk is empty
+        // or not. If we get ATIP info, we assume that the disk is empty.
+		range = [outLine rangeOfString: @"ATIP info from disk"];
+		if (range.location != NSNotFound) {
+			[info setObject: @"yes" forKey: @"empty"];
+			continue;
+		}
+
+		// check for not erasable first, then for erasable
+		// if none applies don#t change the dictionary
+		range = [outLine rangeOfString: @"Is not erasable"];
+		if (range.location != NSNotFound) {
+			[info setObject: @"CD-R" forKey: @"type"];
+			continue;
+		} else {
+			range = [outLine rangeOfString: @"Is erasable"];
+			if (range.location != NSNotFound) {
+				[info setObject: @"CD-RW" forKey: @"type"];
+				continue;
+			}
+		}
+
+		// search manufacturer/vendor
+		range = [outLine rangeOfString: @"Manufacturer"];
+		if (range.location != NSNotFound) {
+			if ([outLine length] > range.location+13)
+				[info setObject: [outLine substringFromIndex: 14] forKey: @"vendor"];
+			continue;
+		}
+
+		range = [outLine rangeOfString: @"  speed low"];
+		if (range.location != NSNotFound) {
+			NSRange range1 = [outLine rangeOfString: @"speed high"];
+			if ([outLine length] > range1.location+11)
+				[info setObject: [NSString stringWithFormat: @"%dX - %dX",
+									[[outLine substringFromIndex: 13] intValue],
+									[[outLine substringFromIndex: range1.location+12] intValue]]
+						forKey: @"speed"];
+			continue;
+		}
+		range = [outLine rangeOfString: @"ATIP start of lead out"];
+		if (range.location != NSNotFound) {
+			if ([outLine length] > 41) {
+				int frames = [[outLine substringFromIndex: 26] intValue];
+				NSString *str = [NSString stringWithFormat: @"%@ - %d blocks, %d/%d MB",
+									[outLine substringWithRange: NSMakeRange(34,8)],
+									frames,
+									frames * 2048 / (1024*1024),
+									frames * 2352 / (1024*1024)];
+				[info setObject: str forKey: @"capacity"];
+			} else
+				[info setObject: [outLine substringFromIndex: 26] forKey: @"capacity"];
+
+			continue;
+		}
+	}
+
+	RELEASE(stdOut);
+	RELEASE(cdrTask);
+
+	return info;
+}
+#else
 - (NSDictionary *) mediaInformationForDevice: (NSString *) device
                                   parameters: (NSDictionary *) parameters
 {
@@ -283,6 +435,7 @@ static CDrecordController *singleInstance = nil;
 
     return info;
 }
+#endif // WODIM
 
 - (BOOL) isWritableMediumInDevice: (NSString *) device
                        parameters: (NSDictionary *)parameters
