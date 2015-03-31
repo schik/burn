@@ -94,11 +94,7 @@ static CDrecordParametersView *singleInstance = nil;
 
 - (NSString *) title
 {
-#ifdef WODIM
-    return @"wodim";
-#else
     return @"cdrecord";
-#endif
 }
 
 - (NSView *) view

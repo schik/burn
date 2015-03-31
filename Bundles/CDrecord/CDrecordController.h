@@ -85,6 +85,12 @@ typedef enum {
 
 - (void) getCDrecordDrivers;
 
+- (NSDictionary *) atipInformationForDevice: (NSString *) device
+                                  parameters: (NSDictionary *) parameters;
+
+- (NSDictionary *) minfoInformationForDevice: (NSString *) device
+                                  parameters: (NSDictionary *) parameters;
+
 @end
 
 #endif
