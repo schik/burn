@@ -2,9 +2,9 @@
 /*
  *  CDrecordSettingsView.h
  *
- *  Copyright (c) 2002-2005
+ *  Copyright (c) 2002-2015
  *
- *  Author: Andreas Heppel <aheppel@web.de>
+ *  Author: Andreas Schik <andreas@schik.de>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -32,6 +32,8 @@
 {
 	id drivesTable;
     id programTextField;
+    id compatButton;
+    id transportList;
     id view;
     id window;
 
@@ -45,6 +47,7 @@
 //
 
 - (void) chooseClicked: (id)sender;
+- (void) transportChanged: (id)sender;
 
 @end
 

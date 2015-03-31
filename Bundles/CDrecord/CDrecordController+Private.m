@@ -46,12 +46,6 @@
  * of available drives. For performance reasons this should be done
  * only once when the bundle is loaded.
  */
-NSString *transports[] = {
-    @":",
-    @"ATAPI:",
-    @"/dev/cd0c",
-    @"/dev/cd1c"
-};
 
 NSString *writemodes[] = {
     @"",
@@ -126,6 +120,8 @@ NSString *writemodes[] = {
                             @"cdrecord", @"AppName",
                             @"Checking for drives. Please wait.", @"DisplayString",
                             nil]];
+
+    [drives removeAllObjects];
 
     NSPipe *stdOut = [[NSPipe alloc] init];
     NSMutableArray* cdrArgs = [[NSMutableArray alloc] init];

@@ -2,9 +2,9 @@
 /*
  *  CDrecordSettingsView.m
  *
- *  Copyright (c) 2002-2005
+ *  Copyright (c) 2002-2015
  *
- *  Author: Andreas Heppel <aheppel@web.de>
+ *  Author: Andreas Schik <andreas@schik.de>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -117,6 +117,9 @@ static CDrecordSettingsView *singleInstance = nil;
     }
 }
 
+- (void) transportChanged: (id)sender
+{
+}
 
 //
 // access methods
@@ -169,6 +172,20 @@ static CDrecordSettingsView *singleInstance = nil;
         [programTextField setStringValue: temp];
     }
 
+    temp = [parameters objectForKey: @"Toolkit"];
+    if ((nil != temp) && [temp isEqualToString: @"cdrkit"]) {
+        [compatButton setState: 1];
+    } else {
+        [compatButton setState: 0];
+    }
+
+    temp = [parameters objectForKey: @"Transport"];
+    if ((nil != temp) && [temp length]) {
+        [transportList selectItemWithTitle: temp];
+    } else {
+        [transportList selectItemWithTitle: @"SCSI:"];
+    }
+
 	drivers = [[CDrecordController singleInstance] drivers];
 
     cell = [NSPopUpButtonCell new];
@@ -203,6 +220,7 @@ static CDrecordSettingsView *singleInstance = nil;
 - (void) saveChanges
 {
     id writer;
+    NSString *transport;
     NSString *cdrecord;
     NSDictionary *params = [[NSUserDefaults standardUserDefaults] dictionaryForKey: @"CDrecordParameters"];
     NSMutableDictionary *mutableParams = nil;
@@ -226,6 +244,22 @@ static CDrecordSettingsView *singleInstance = nil;
     }
 
     [mutableParams setObject: cdrecord forKey: @"Program"];
+
+    if ([compatButton state]) {
+        [mutableParams setObject: @"cdrkit" forKey: @"Toolkit"];
+    } else {
+        [mutableParams setObject: @"cdrtools" forKey: @"Toolkit"];
+    }
+
+    transport = [[transportList selectedItem] title];
+    if ([transport isEqualToString: @"SCSI:"]) {
+    	[mutableParams setObject: @""
+                          forKey: @"Transport"];
+    } else {
+    	[mutableParams setObject: transport
+                          forKey: @"Transport"];
+    }
+
     [[NSUserDefaults standardUserDefaults] setObject: mutableParams
                                               forKey: @"CDrecordParameters"];
     RELEASE(mutableParams);
