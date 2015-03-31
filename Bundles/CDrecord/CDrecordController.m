@@ -82,7 +82,11 @@ static CDrecordController *singleInstance = nil;
 
 - (NSString *) name
 {
+#ifdef WODIM
+    return @"wodim";
+#else
     return @"cdrecord";
+#endif
 }
 
 - (id<PreferencesModule>) preferences;

@@ -38,6 +38,11 @@
 #define _(X) \
     [[NSBundle bundleForClass: [self class]] localizedStringForKey:(X) value:@"" table:nil]
 
+#ifdef WODIM
+    #define APP_NAME @"wodim"
+#else
+    #define APP_NAME @"cdrecord"
+#endif
 
 @implementation CDrecordController (Private)
 
@@ -85,7 +90,7 @@ NSString *writemodes[] = {
             program = NOT_FOUND;
         }
     } else {
-        program = which(@"cdrecord");
+        program = which(APP_NAME);
     }
 
     [mutableParams setObject: program forKey: @"Program"];
@@ -106,7 +111,7 @@ NSString *writemodes[] = {
     cdrecord = [parameters objectForKey: @"Program"];
 
     if ((nil == cdrecord) || [cdrecord isEqualToString: NOT_FOUND]) {
-        cdrecord = which(@"cdrecord");
+        cdrecord = which(APP_NAME);
     }
     /*
      * It may be that cdrecord cannot be found. In this case
@@ -120,7 +125,7 @@ NSString *writemodes[] = {
                 object: nil
                 userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
                             @"1", @"Start",
-                            @"cdrecord", @"AppName",
+                            APP_NAME, @"AppName",
                             @"Checking for drives. Please wait.", @"DisplayString",
                             nil]];
 
@@ -199,7 +204,7 @@ NSString *writemodes[] = {
                 object: nil
                 userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
                             @"0", @"Start",
-                            @"cdrecord", @"AppName",
+                            APP_NAME, @"AppName",
                             nil]];
 }
 
@@ -447,7 +452,7 @@ NSString *writemodes[] = {
                                             _(@"Process will be stopped.")] raw: NO];
 
         [NSException raise: NSInternalInconsistencyException
-                    format: @"cdrecord cannot find a burning device."];
+                    format: @"%@ cannot find a burning device.", APP_NAME];
     }
 
     /* The array is autoreleased! Don't release it here!!! */
@@ -555,7 +560,7 @@ NSString *writemodes[] = {
                                             _(@"Process will be stopped.")] raw: NO];
 
         [NSException raise: NSInternalInconsistencyException
-                    format: @"cdrecord cannot find a burning device."];
+                    format: @"%@ cannot find a burning device.", APP_NAME];
 
     }
 }

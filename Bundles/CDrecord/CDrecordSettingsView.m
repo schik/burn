@@ -34,6 +34,12 @@
 #define _(X) \
     [[NSBundle bundleForClass: [self class]] localizedStringForKey:(X) value:@"" table:nil]
 
+#ifdef WODIM
+    #define APP_NAME @"wodim"
+#else
+    #define APP_NAME @"cdrecord"
+#endif
+
 static CDrecordSettingsView *singleInstance = nil;
 
 
@@ -134,7 +140,7 @@ static CDrecordSettingsView *singleInstance = nil;
 
 - (NSString *) title
 {
-    return _(@"cdrecord");
+    return APP_NAME;
 }
 
 - (NSView *) view
@@ -163,7 +169,7 @@ static CDrecordSettingsView *singleInstance = nil;
 
     temp = [parameters objectForKey: @"Program"];
     if (!temp) {
-        temp = which(@"cdrecord");
+        temp = which(APP_NAME);
     }
     if (temp) {
         [programTextField setStringValue: temp];
@@ -221,7 +227,7 @@ static CDrecordSettingsView *singleInstance = nil;
         NSRunAlertPanel(@"CDrecord.bundle",
                         [NSString stringWithFormat:
                                 _(@"Program for %@ not defined or not executable. %@ may not run correctly."),
-                                @"cdrecord", @"CDrecord.bundle"],
+                                APP_NAME, @"CDrecord.bundle"],
                         _(@"OK"), nil, nil);
     }
 
