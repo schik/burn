@@ -103,9 +103,10 @@ containing wodim and genisoimage. cdrecord and mkisofs are only symbolic
 links to these programs! To my knowledge, cdrkit (especially wodim)
 uses slightly different command line arguments. In particular, media
 detection does not work reliably, if at all.
-cdrecord (from cdrtools), however, conflicts with hald used on most if not
-all Linux distros nowadays. Best results will be achieved when cdrecord is
-used in raw96 mode (parameter -raw96r).
+If you want to use cdrkit (wodim) you may set the parameter "Toolkit"
+in the "CDrecordParameters" dictionary of the user defaults to "cdrkit"
+before running Burn. There is no GUI element, yet, to change this.
+
 
 cdrdao
 ------
@@ -116,21 +117,6 @@ that other versions may work, too, but were not tested.):
 
 cdrdao
 	1.2.2
-
-So far, cdrdao has proven to be more reliable than cdrecord, at least on my
-development system (I don't have any other at the moment :-).
-
-Future plans
-============
-
-Burn.app will move towards using libburn and libisofs (http://icculus.org/burn).
-The cdrtools backends will then be only optional tools that can be installed
-additionally.
-One reason for this are the above mentioned problems with cdrecord, another is
-the somewhat arrogant attitude of Schily wrt helping other people with their
-problems and wrt to the 'brokenness' of other tools than his cdrtools.
-There are technical reasons, too. Using a library seems somewhat easier than
-starting and communicationg with external programs.
 
 
 Installation
@@ -177,6 +163,19 @@ Disclaimer
 Burn.app is in a beta state and not yet stable. You use it at
 your own risk. I cannot be made responsible for any damage to your
 hardware or for spoiled raw media.
+
+
+Future plans
+============
+
+Burn.app may move towards using libburn and libisofs (http://icculus.org/burn).
+The cdrtools backends will then be only optional tools that can be installed
+additionally.
+One reason for this are the above mentioned problems with cdrecord, another is
+the somewhat arrogant attitude of Schily wrt helping other people with their
+problems and wrt to the 'brokenness' of other tools than his cdrtools.
+There are technical reasons, too. Using a library seems somewhat easier than
+starting and communicationg with external programs.
 
 
 Contact
