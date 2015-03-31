@@ -2,19 +2,23 @@
     "## Comment" = "Do NOT change this file, Gorm maintains it";
     CDrecordSettingsView = {
 	Actions = (
-	    "chooseClicked:"
+	    "chooseClicked:",
+	    "transportChanged:"
 	);
 	Outlets = (
 	    window,
 	    view,
 	    programTextField,
-	    drivesTable
+	    drivesTable,
+	    compatButton,
+	    transportList
 	);
 	Super = NSObject;
     };
     FirstResponder = {
 	Actions = (
-	    "chooseClicked:"
+	    "chooseClicked:",
+	    "transportChanged:"
 	);
 	Super = NSObject;
     };
