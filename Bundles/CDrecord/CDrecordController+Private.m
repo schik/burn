@@ -2,9 +2,9 @@
 /*
  *  CDrecordController.m
  *
- *  Copyright (c) 2002-2004
+ *  Copyright (c) 2002-2015
  *
- *  Author: Andreas Heppel <aheppel@web.de>
+ *  Author: Andreas Schik <andreas@schik.de>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -98,8 +98,9 @@ NSString *writemodes[] = {
 
 - (void) checkForDrives
 {
-    NSString* cdrecord;
-    int      count, i, j;
+    NSString *transport;
+    NSString *cdrecord;
+    int      count, j;
     NSDictionary *parameters =
             [[NSUserDefaults standardUserDefaults] objectForKey: @"CDrecordParameters"];
 
@@ -115,6 +116,8 @@ NSString *writemodes[] = {
     if (!checkProgram(cdrecord))
         return;
 
+    transport = [parameters objectForKey: @"Transport"];
+
     [[NSNotificationCenter defaultCenter]
                 postNotificationName: DisplayWorkInProgress
                 object: nil
@@ -124,72 +127,66 @@ NSString *writemodes[] = {
                             @"Checking for drives. Please wait.", @"DisplayString",
                             nil]];
 
-    /*
-     * Walk the list of transport layers and for each call the scanbus command.
-     * Then concatenate the output lines to one array.
-     */ 
-    for (i = 0; i < sizeof(transports)/sizeof(NSString*); i++) {
-        NSPipe *stdOut = [[NSPipe alloc] init];
-        NSMutableArray* cdrArgs = [[NSMutableArray alloc] init];
-        NSArray *output;
+    NSPipe *stdOut = [[NSPipe alloc] init];
+    NSMutableArray* cdrArgs = [[NSMutableArray alloc] init];
+    NSArray *output;
 
-        if ([transports[i] length])
-            [cdrArgs addObject: [NSString stringWithFormat: @"dev=%@", transports[i]]];
-        [cdrArgs addObject: [NSString stringWithFormat: @"-scanbus"]];
+    if ((nil != transport) && [transport length])
+        [cdrArgs addObject: [NSString stringWithFormat: @"dev=%@", transport]];
+    [cdrArgs addObject: [NSString stringWithFormat: @"-scanbus"]];
 
-        cdrTask = [[NSTask alloc] init];
-        [cdrTask setLaunchPath: cdrecord];
-        [cdrTask setArguments: cdrArgs];
-        [cdrTask setStandardOutput: stdOut];
-        [cdrTask setStandardError: stdOut];
+    cdrTask = [[NSTask alloc] init];
+    [cdrTask setLaunchPath: cdrecord];
+    [cdrTask setArguments: cdrArgs];
+    [cdrTask setStandardOutput: stdOut];
+    [cdrTask setStandardError: stdOut];
 
-        [cdrTask launch];
+    [cdrTask launch];
 
-        [cdrTask waitUntilExit];
+    [cdrTask waitUntilExit];
 
-        output = [[[NSString alloc] initWithData: [[stdOut fileHandleForReading] availableData]
-                                       encoding: NSISOLatin1StringEncoding] componentsSeparatedByString: @"\n"];
+    output = [[[NSString alloc] initWithData: [[stdOut fileHandleForReading] availableData]
+                                   encoding: NSISOLatin1StringEncoding] componentsSeparatedByString: @"\n"];
 
-        count = [output count];
+    count = [output count];
 
-        for (j = 0; j < count; j++) {
-            NSString *line;
-            NSString *vendorString, *modelString, *revString;
-            NSString *busIdLunString;
+    for (j = 0; j < count; j++) {
+        NSString *line;
+        NSString *vendorString, *modelString, *revString;
+        NSString *busIdLunString;
 
-            line = [[output objectAtIndex: j] stringByTrimmingLeadSpaces];
+        line = [[output objectAtIndex: j] stringByTrimmingLeadSpaces];
 
-            /*
-            * Check whether it is a CD-ROM, first.
-            */
-            if (([line rangeOfString: @"CD-ROM"].location != NSNotFound)) {
-                /* triple of bus, id, lun comes first */
-                busIdLunString = [line substringToIndex: [line rangeOfString: @"\t"].location];
-                line = [line substringFromIndex: [line rangeOfString: @"'"].location+1];
+        /*
+         * Check whether it is a CD-ROM, first.
+         */
+        if (([line rangeOfString: @"CD-ROM"].location != NSNotFound)) {
+            /* triple of bus, id, lun comes first */
+            busIdLunString = [line substringToIndex: [line rangeOfString: @"\t"].location];
+            line = [line substringFromIndex: [line rangeOfString: @"'"].location+1];
 
-                /* Vendor, Model, Revision are encapsulated by ' */
-                vendorString = [[line substringToIndex: [line rangeOfString: @"\'"].location] stringByTrimmingSpaces];
-                line = [line substringFromIndex: [line rangeOfString: @"' '"].location+3];
-                modelString = [[line substringToIndex: [line rangeOfString: @"\'"].location] stringByTrimmingSpaces];
-                line = [line substringFromIndex: [line rangeOfString: @"' '"].location+3];
-                revString = [[line substringToIndex: [line rangeOfString: @"\'"].location] stringByTrimmingSpaces];
+            /* Vendor, Model, Revision are encapsulated by ' */
+            vendorString = [[line substringToIndex: [line rangeOfString: @"\'"].location] stringByTrimmingSpaces];
+            line = [line substringFromIndex: [line rangeOfString: @"' '"].location+3];
+            modelString = [[line substringToIndex: [line rangeOfString: @"\'"].location] stringByTrimmingSpaces];
+            line = [line substringFromIndex: [line rangeOfString: @"' '"].location+3];
+            revString = [[line substringToIndex: [line rangeOfString: @"\'"].location] stringByTrimmingSpaces];
 
-                if ([transports[i] isEqualToString:@"ATAPI:"]) {
-                    [drives setObject: transports[i]
-                               forKey: [NSString stringWithFormat: @"%@: %@ %@ %@",
-                                                                    busIdLunString,
-                                                                    vendorString, modelString, revString]];
-                } else if ([transports[i] length] > 1) {
-                    [drives setObject: transports[i]
-                               forKey: [NSString stringWithFormat: @"%@: %@ %@ %@",
-                                                                    transports[i],
-                                                                    vendorString, modelString, revString]];
-                } else {
-                    [drives setObject: @""
-                               forKey: [NSString stringWithFormat: @"%@: %@ %@ %@",
-                                                                    busIdLunString,
-                                                                    vendorString, modelString, revString]];
-                }
+            if ([transport isEqualToString:@"ATAPI:"]) {
+                [drives setObject: transport
+                           forKey: [NSString stringWithFormat: @"%@: %@ %@ %@",
+                                                                busIdLunString,
+                                                                vendorString, modelString, revString]];
+            } else if ([transport length]) {
+                [drives setObject: transport
+                           forKey: [NSString stringWithFormat: @"%@: %@ %@ %@",
+                                                                transport,
+                                                                vendorString, modelString, revString]];
+            } else {
+                [drives setObject: @""
+                           forKey: [NSString stringWithFormat: @"%@: %@ %@ %@",
+                                                                busIdLunString,
+                                                                vendorString, modelString, revString]];
             }
         }
     }
