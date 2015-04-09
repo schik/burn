@@ -1,9 +1,22 @@
+Version 0.6.0
+-------------
+
+Changes:
+
+- The CDrecord bundle supports both packages, cdrtools and cdrkit, with
+  their proper command line parameters.
+- The CDrecord bundle supports cdrskin, too.
+- The CDrecord bundle has a new settings dialog, by which the user can
+  select between cdrtools and cdrkit, and where the user can select the
+  proper transport for communication with the hardware.
+- New app icon.
+
 Version 0.5.0
 -------------
 
 Changes:
 
-- The project window now uses a confugurable toolbar instead of those
+- The project window now uses a configurable toolbar instead of those
   two buttons.
 - Files can now be added using the NSOpenPanel. This is handy if you don't
   use GWorkspace for D'n'D.
