@@ -25,7 +25,6 @@ where GNUstep is available (and the external tools, of course).
 
 Requirements
 ============
-
 Before you install Burn, you must make sure that the following
 software is installed on your system. Otherwise you might not even be
 able to compile Burn.
@@ -53,22 +52,15 @@ GWorkspace.app. Any version from on 0.6.0 should do.
 Install GWorkspace.app according to its instructions.
 
 
-CDPlayer.app
+CDPlayer
 ------------
-You also need CDPlayer.app to use Burn. This is because Burn
-uses the AudioCD.bundle included in CDPlayer.app to read an audio
+You also need CDPlayer to use Burn. This is because Burn
+uses the AudioCD.bundle included in CDPlayer to read an audio
 CD's TOC. Burn now also relies on CDPlayer for adding audio CD tracks to a CD
 description either via DnD or using the new services.
-CDPlayer.app can be downloaded at:
+CDPlayer can be downloaded at:
 
-http://sourceforge.net/project/showfiles.php?group_id=61565&release_id=132392
-
-You need at least version 0.4.0 of CDPlayer.app.
-
-More recent versions may be on CVS:
-cvs -d:pserver:anonymous@cvs.gsburn.sourceforge.net:/cvsroot/gsburn login
-password is empty
-cvs -z3 -d:pserver:anonymous@cvs.gsburn.sourceforge.net:/cvsroot/gsburn co CDPlayer
+https://github.com/schik/cdplayer
 
 Unpack the tar ball and do:
 
@@ -139,7 +131,6 @@ cdrdao
 
 Installation
 ============
-
 Before you install Burn you should deinstall any old version of GSburn.app.
 This is because Burn is the replacement for GSburn.app.
 They may coexist, but you want need GSburn.app anymore.
@@ -155,10 +146,6 @@ After installing the above stuff simply do
 This will install everything needed to run Burn except
 the external tools (see above).
 
-The cdrdao backend bundle is no longer part of the release archive. If you
-ish to use cdrdao for burning, dowload the bundle's source code separately
-from SF and install it according to its instructions.
-
 If you want the documentation to be created, call
 
 > make doc=yes.
@@ -170,35 +157,18 @@ and so on. However, this feature is far from being finished, yet.
 
 HOWTO
 =====
-
 Howto what? Burn is designed to be simple, easy to use and intuitive ;-)
 Seriously, check the online help for further assistance.
 
 
 Disclaimer
 ==========
-
-Burn is in a beta state and not yet stable. You use it at
-your own risk. I cannot be made responsible for any damage to your
-hardware or for spoiled raw media.
-
-
-Future plans
-============
-
-Burn may move towards using libburn and libisofs (http://icculus.org/burn).
-The cdrtools backends will then be only optional tools that can be installed
-additionally.
-One reason for this are the above mentioned problems with cdrecord, another is
-the somewhat arrogant attitude of Schily wrt helping other people with their
-problems and wrt to the 'brokenness' of other tools than his cdrtools.
-There are technical reasons, too. Using a library seems somewhat easier than
-starting and communicationg with external programs.
+You use Burn at your own risk. I cannot be held responsible for
+any damage to your hardware, for spoiled raw media or for loss of data.
 
 
 Contact
 =======
-
 For bug reports or feature requests contact the author:
 
 Andreas Schik <andreas@schik.de>
