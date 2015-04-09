@@ -57,6 +57,8 @@ typedef enum {
     NSMutableArray *drivers;
 }
 
+- (void) checkForDrives;
+
 @end
 
 //
@@ -65,7 +67,6 @@ typedef enum {
 @interface CDrecordController (Private)
 
 - (void) initializeFromDefaults;
-- (void) checkForDrives;
 - (void) waitForEndOfBurning;
 
 - (NSMutableArray *) makeParamsForTask: (CDrecordTask) task

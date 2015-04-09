@@ -119,6 +119,26 @@ static CDrecordSettingsView *singleInstance = nil;
 
 - (void) transportChanged: (id)sender
 {
+    [self saveChanges];
+    [writerDriverMap removeAllObjects];
+    [[CDrecordController singleInstance] checkForDrives];
+ 
+    int i;
+    NSArray *drives = [[CDrecordController singleInstance] availableDrives];
+    NSDictionary *parameters = [[NSUserDefaults standardUserDefaults]
+        objectForKey: @"Drivers"];
+
+    for (i = 0; i < [drives count]; i++) {
+        NSDictionary *d = [parameters objectForKey: [drives objectAtIndex: i]];
+        NSString *driver = [d objectForKey: [[CDrecordController singleInstance] name]];
+        if (nil == driver) {
+            driver = @"Default";
+        }
+        [writerDriverMap setObject: driver forKey: [drives objectAtIndex: i]];
+    }
+    [drivesTable reloadData];
+    [drivesTable selectRow: 0 byExtendingSelection: NO];
+
 }
 
 //
@@ -180,7 +200,7 @@ static CDrecordSettingsView *singleInstance = nil;
     }
 
     temp = [parameters objectForKey: @"Transport"];
-    if ((nil != temp) && [temp length]) {
+    if ((nil != temp) && ![temp isEqualToString: @":"]) {
         [transportList selectItemWithTitle: temp];
     } else {
         [transportList selectItemWithTitle: @"SCSI:"];
@@ -253,7 +273,7 @@ static CDrecordSettingsView *singleInstance = nil;
 
     transport = [[transportList selectedItem] title];
     if ([transport isEqualToString: @"SCSI:"]) {
-    	[mutableParams setObject: @""
+    	[mutableParams setObject: @":"
                           forKey: @"Transport"];
     } else {
     	[mutableParams setObject: transport
