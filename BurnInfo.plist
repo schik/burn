@@ -2,12 +2,12 @@
     ApplicationDescription = "A GNUstep interface for burning CDs.";
     ApplicationIcon = "";
     ApplicationName = Burn;
-    ApplicationRelease = "0.5.0";
-    Authors = ("Andreas Schik <andreas.schik@web.de>");
-    Copyright = "Copyright (C) 2002-2008 by Andreas Schik";
+    ApplicationRelease = "0.6.0";
+    Authors = ("Andreas Schik <andreas@schik.de>");
+    Copyright = "Copyright (C) 2002-2015 by Andreas Schik";
     CopyrightDescription = "Released under GPL";
-    FullVersionID = "0.5.0";
-    URL = "http://gsburn.sourceforge.net";
+    FullVersionID = "0.6.0";
+    URL = "http://www.andreasschik.de";
     NSPrincipalClass = "BurnApplication";
     NSTypes = (
       {
