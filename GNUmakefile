@@ -75,9 +75,7 @@ Images/iconCDR.tiff \
 Images/iconCDRW.tiff \
 Images/iconMultiSelection.tiff \
 Images/iconGeneral.tiff \
-Images/iconFileBurn.tiff \
-Images/iconFileIso.tiff \
-Images/iconFileCdr.tiff \
+Images/FileIcon.tiff \
 Images/iconAddFiles.tiff \
 Images/iconAddAudioTracks.tiff \
 Images/iconRemoveTracks.tiff \

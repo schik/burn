@@ -13,7 +13,7 @@
       {
         NSName = "burnprj";
         NSRole = "Editor";
-	NSIcon = "iconFileBurn.tiff";
+	NSIcon = "FileIcon.tiff";
         NSHumanReadableName = "CD Compilation";
         NSUnixExtensions = ("burn");
         NSDocumentClass = Project;
@@ -21,7 +21,7 @@
       {
         NSName = "isoimg";
         NSRole = "Editor";
-	NSIcon = "iconFileIso.tiff";
+	NSIcon = "FileIcon.tiff";
         NSHumanReadableName = "ISO Image";
         NSUnixExtensions = ("iso");
         NSDocumentClass = Project;
