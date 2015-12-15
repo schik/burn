@@ -39,4 +39,4 @@ add comments above this one
 "OK" = "OK";
 /* File: CDrecordSettingsView.m:221 */
 "Program for %@ not defined or not executable. %@ may not run correctly."
-= "Programm f\U00f6r %@ nicht definiert oder nicht ausf\U00f6hrbar. %@ wird nicht korrekt arbeiten.";
+= "Programm f\U00fcr %@ nicht definiert oder nicht ausf\U00fchrbar. %@ wird nicht korrekt arbeiten.";

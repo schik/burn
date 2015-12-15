@@ -21,6 +21,6 @@ add comments above this one
 "OK" = "OK";
 /* File: MkIsoFsParametersView.m:175 */
 "Program for %@ not defined or not executable. %@ may not run correctly."
-= "Programm f\U00f6r %@ nicht definiert oder nicht ausf\U00f6hrbar. %@ wird nicht korrekt arbeiten.";
+= "Programm f\U00fcr %@ nicht definiert oder nicht ausf\U00fchrbar. %@ wird nicht korrekt arbeiten.";
 /* File: MkIsoFsParametersView.m:251 */
 "Select file" = "Datei w\U00e4hlen";
