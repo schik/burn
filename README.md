@@ -92,8 +92,11 @@ mkisofs   (www.fokus.gmd.de/usr/schilling/cdrecord.html)
 
 cdparanoia III rel. 10.2.  	(www.xiph.org/paranoia)
 
-Note, that Burn is tested with the _original_ programs from the
-cdrtools suite. Most Linux distros today come with the cdrkit instead.
+It is stringly recommended to use the _original_ programs from the
+cdrtools suite. On the one hand, Burn is largely tested with these
+and on the other, the clones do often not work reliably (see below).
+Note, that most Linux distros today come with the cdrkit instead,
+thus you will have to build and install cdrtools manually.
 
 cdrkit
 ------
@@ -101,7 +104,10 @@ _cdrkit_ is a replacement for the cdrtools package. The programs
 in the package are called _wodim_ and _genisoimage_. cdrecord and
 mkisofs are symbolic links to these programs! cdrkit (especially wodim)
 uses slightly different command line arguments. In particular, media
-detection does not work reliably, if at all.
+detection does not work reliably, if at all. Usually, it is necessary to
+adapt /etc/wodim.conf or to create particular symlinks to /dev/sr0 (e.g.
+/dev/cdrw or /dev/scd0) to make wodim detect the drive. Once the drive
+is detected by wodim, the program seems to work reasonably well.
 wodim and genisoimage can be used with the bundles _CDrecord_ and
 _MkIsoFs_.
 If you want to use cdrkit (wodim), open the settings dialog and set
@@ -115,6 +121,11 @@ _cdrskin_. I have not tested cdrskin thoroughfully, but it seems as if
 it is a suitable drop-in replacement for the original cdrecord program.
 At least it understands the same parameters and prints the same output.
 Thus, it can be used with the _CDrecord_ bundle.
+As it turned out, cdrskin does not burn usable audio CDs. The program
+claimed that the WAV files were of no suitable format, but burned them
+anyway. The output was an audio CD with garbage on it. From various sources
+on the Internet, I coclude, that cdrskin has issues with the headers of
+WAV and AU files, thus seems unsuitable for that purpose.
 If you want to use it, open the settings dialog and set the program path
 accordingly. You do not have to turn on the compatibility mode.
 
