@@ -278,7 +278,7 @@ add comments above this one
 /* File: ConvertAudioHelper.m:142 */
 "ConvertAudioHelper.noProgram" = "Audio converter could not be found.";
 /* File: ConvertAudioHelper.m:282 */
-"ConvertAudioHelper.preparing" = "Preparing %@ tracks...";
+"ConvertAudioHelper.preparing" = "Preparing tracks...";
 /* File: ConvertAudioHelper.m:274 */
 "ConvertAudioHelper.success" = "Audio tracks converted successfully.";
 /* File: ConvertAudioHelper.m:289 */

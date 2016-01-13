@@ -284,7 +284,7 @@ add comments above this one
 "ConvertAudioHelper.noProgram"
 = "Audio-Konvertierungs-Programm wurde nicht gefunden";
 /* File: ConvertAudioHelper.m:282 */
-"ConvertAudioHelper.preparing" = "Bereite %@ Tracks vor...";
+"ConvertAudioHelper.preparing" = "Bereite Tracks vor...";
 /* File: ConvertAudioHelper.m:274 */
 "ConvertAudioHelper.success"
 = "Audio-Tracks wurden erfolgreich konvertiert.";

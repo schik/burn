@@ -363,7 +363,7 @@ add comments above this one
 /* File: ConvertAudioHelper.m:304 */
 "ConvertAudioHelper.allTracks" = "Tous les pistes";
 /* File: ConvertAudioHelper.m:282 */
-"ConvertAudioHelper.preparing" = "Pr\u00e9paration du %@ tracks...";
+"ConvertAudioHelper.preparing" = "Pr\u00e9paration des pistes...";
 /* File: ConvertAudioHelper.m:289 */
 "GrabAudioCDHelper.CDTitle" = "Titre du CD: %@ - %@";
 /* File: ConvertAudioHelper.m:241 */
