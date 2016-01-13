@@ -1,0 +1,40 @@
+AudioConverter.bundle
+=====================
+AudioConverter.bundle is a supportig bundle for Burn.app. It implements the
+API for Burn.app's audio file conversion bundles. AudioConverter.bundle
+converts, as its name implies, all kinds of audio files into wav audio files
+which can be burned onto a CD playable in your home stereo.
+AudioConverter.bundle uses ffmpeg or avconv to do the actual work.
+
+
+Requirements
+============
+
+Burn.app
+--------
+As AudioConverter.bundle is a suporting bundle for Burn.app you will of
+course need the application. Otherwise the bundle is of no use
+for you.
+Download the latest version from here:
+http://gsburn.sourceforge.net
+
+avconf/ffmpeg
+-------------
+ffmpeg is a cross-platform audio and video conversion tool. avconv is a fork
+of the very same which operates slightly different, but has the same interface.
+It is just a matter of personal preference or your OS's default, which one to
+use.
+AudioConverter.bundle uses ffmpeg/avconv to produce wav files. Neither of them
+is part of the package, you will need to install it separately. Most distros
+provide an installable package of either the one or the other.
+
+Installation
+============
+
+In the bundle's source code directory type:
+
+> make
+> make install
+
+This will install the bundle in a place where it can be automatically
+found by Burn.app.
