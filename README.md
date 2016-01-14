@@ -13,7 +13,7 @@ and save your projects for later reuse. Burn will hide as
 many settings as possible from you, thus making it very easy and
 user-friendly to create your own CDs.
 
-Burn has now reached version 0.6.0.
+Burn has now reached version 0.7.0.
 
 
 Platforms
@@ -54,7 +54,7 @@ Install GWorkspace.app according to its instructions.
 
 CDPlayer
 ------------
-You also need CDPlayer to use Burn. This is because Burn
+You might also need CDPlayer to use Burn. This is because Burn
 uses the AudioCD.bundle included in CDPlayer to read an audio
 CD's TOC. Burn now also relies on CDPlayer for adding audio CD tracks to a CD
 description either via DnD or using the new services.
@@ -81,7 +81,7 @@ The cdrtools package contains the programs
 _cdrecord_, _mkiofs_ and _cdparanoia_. They are supported by
 the respective bundles _CDrecord.burntool_, _MkIsoFs.burntool_
 and _CDparanoia.burntool_.
-Burn 0.6 has been tested with the following versions (Note,
+Burn 0.7 has been tested with the following versions (Note,
 that other versions may work, too, but were not tested.):
  
 cdrecord  (www.fokus.gmd.de/usr/schilling/cdrecord.html)
@@ -124,7 +124,7 @@ Thus, it can be used with the _CDrecord_ bundle.
 As it turned out, cdrskin does not burn usable audio CDs. The program
 claimed that the WAV files were of no suitable format, but burned them
 anyway. The output was an audio CD with garbage on it. From various sources
-on the Internet, I coclude, that cdrskin has issues with the headers of
+on the Internet, I conclude, that cdrskin has issues with the headers of
 WAV and AU files, thus seems unsuitable for that purpose.
 If you want to use it, open the settings dialog and set the program path
 accordingly. You do not have to turn on the compatibility mode.
@@ -133,19 +133,25 @@ cdrdao
 ------
 An alternative writing backend is cdrdao. cdrecord may be replaced
 by this program. Note, that cdrdao may lack some of cdrecord's features.
-Burn 0.6 has been tested with the following version (Note,
-that other versions may work, too, but were not tested.):
+Burn 0.7 has been tested with the version 1.2.2 of cdrdao (Note,
+that other versions may work, too, but were not tested.).
 
-cdrdao
-	1.2.2
+ffmpeg/avconv
+-------------
+Since version 0.7.0, Burn uses _ffmpeg_ or _avconv_ to convert audio files
+to wav files. wav files are needed as an intermediate step if you want to
+create an audio CD. Burn has been tested with version 9.18 of avconv.
 
 
 Installation
 ============
-Before you install Burn you should deinstall any old version of GSburn.app.
+Before you install Burn you should uninstall any old version of GSburn.app.
 This is because Burn is the replacement for GSburn.app.
-They may coexist, but you want need GSburn.app anymore.
-
+They may coexist, but you won't need GSburn.app anymore.
+You must also uninstall any older version of Burn. This is due to the fact
+that some APIs for the backend bundles have changed and are no longer
+compatible. Older versions of the bundles might be loaded, but will lead to
+erroneous behaviour.
 
 After installing the above stuff simply do
 
