@@ -1,5 +1,25 @@
-/* vim: set ft=objc ts=4 nowrap: */
-/* All Rights reserved */
+/* vim: set ft=objc ts=4 et sw=4 nowrap: */
+/*
+ *	ToolSelector.m
+ *
+ *	Copyright (c) 2002-2005, 2011, 2016
+ *
+ *	Author: Andreas Schik <andreas@schik.de>
+ *
+ *	This program is free software; you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation; either version 2 of the License, or
+ *	(at your option) any later version.
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+ *	GNU General Public License for more details.
+ *
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program; if not, write to the Free Software
+ *	Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
 
 #include <AppKit/AppKit.h>
 
@@ -15,21 +35,14 @@
 
 - (id) initWithFrame: (NSRect) frameRect
 {
-	int optionalTools = 0;
 	NSTextField *text;
-	NSPopUpButton *popUp;
 
 	self = [super initWithFrame: frameRect];
 	if (self) {
-		int i;
 		float height;
 		NSRect frame;
 
-		additionalPopUps = [NSMutableArray new];
-		fileTypes = RETAIN([[AppController appController] registeredFileTypes]);
-		optionalTools = [fileTypes count];
-		
-		height = (optionalTools + 2) * (TextFieldHeight + VMARGIN);
+		height = 2 * (TextFieldHeight + VMARGIN);
 		frame = NSMakeRect(0, 0, frameRect.size.width, height);
 
 		toolView = [[NSView alloc] initWithFrame: frame];
@@ -55,22 +68,6 @@
 		[isoToolPopUp setAutoresizingMask: NSViewWidthSizable | NSViewMinXMargin | NSViewMinYMargin];
 		[toolView addSubview: isoToolPopUp];
 
-		for (i = 0; i < optionalTools; i++) {
-			int relpos = i + 3;
-			NSString *lblText = [NSString stringWithFormat: _(@"ToolSelector.convertAudio"), [fileTypes objectAtIndex: i]];
-			MAKE_LABEL(text, NSMakeRect(10, height - relpos*(TextFieldHeight+VMARGIN)+VMARGIN/2, 130, TextFieldHeight),
-					lblText, 'l', YES, toolView);
-		    [text setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin];
-
-			popUp = [[NSPopUpButton alloc] initWithFrame: NSZeroRect pullsDown: NO];
-			[popUp setFrame: NSMakeRect(150, height - relpos*(TextFieldHeight+VMARGIN)+VMARGIN/2, 150, 20)];
-			[popUp setAutoenablesItems: NO];
-		    [popUp setAutoresizingMask: NSViewWidthSizable | NSViewMinXMargin | NSViewMinYMargin];
-			[toolView addSubview: popUp];
-			[additionalPopUps addObject: popUp];
-			[popUp release];
-		}
-
 		frame = NSMakeRect(0,0,frameRect.size.width,frameRect.size.height);
 		scrollView = [[NSScrollView alloc] initWithFrame: frame];
 		[scrollView setHasHorizontalScroller: NO];
@@ -86,8 +83,6 @@
 
 - (void) dealloc
 {
-	[fileTypes release];
-	[additionalPopUps release];
 	[burnToolPopUp release];
 	[isoToolPopUp release];
 	[toolView release];
@@ -103,53 +98,6 @@
 - (NSPopUpButton *) isoToolPopUp
 {
 	return isoToolPopUp;
-}
-
-- (void) getAvailableTools
-{
-	int i, j;
-	for (i = 0; i < [fileTypes count]; i++) {
-		NSString *temp;
-		NSString *fileType = [fileTypes objectAtIndex: i];
-		NSPopUpButton *popUp = [additionalPopUps objectAtIndex: i];
-		NSArray *bundles = [[AppController appController] bundlesForFileType: fileType];
-
-		for (j = 0; j < [bundles count]; j++) {
-			id tool = [bundles objectAtIndex: j];
-			[popUp addItemWithTitle: [(id<BurnTool>)tool name]];
-		}
-
-		if ([popUp numberOfItems] == 0) {
-			[popUp addItemWithTitle: _(@"Common.empty")];
-		}
-
-		temp = [[[NSUserDefaults standardUserDefaults] objectForKey: @"SelectedTools"] objectForKey: fileType];
-		if (temp && [temp length]) {
-			[popUp selectItemWithTitle: temp];
-		} else {
-			[popUp selectItemAtIndex: 0];
-		}
-	}
-}
-
-- (void) saveChanges: (NSMutableDictionary *) selectedTools
-{
-	int i;
-	for (i = 0; i < [fileTypes count]; i++) {
-		NSString *fileType = [fileTypes objectAtIndex: i];
-		NSPopUpButton *popUp = [additionalPopUps objectAtIndex: i];
-		[selectedTools setObject: [popUp titleOfSelectedItem] forKey: fileType];
-	}
-}
-
-- (void) setTarget: (id)target action: (SEL)action
-{
-	int i;
-	for (i = 0; i < [additionalPopUps count]; i++) {
-		NSPopUpButton *popUp = [additionalPopUps objectAtIndex: i];
-		[popUp setTarget: target];
-		[popUp setAction: action];
-	}
 }
 
 
