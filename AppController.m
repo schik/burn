@@ -2,7 +2,7 @@
 /*
  *	AppController.m
  *
- *	Copyright (c) 2002-2005, 2011
+ *	Copyright (c) 2002-2005, 2011, 2016
  *
  *	Author: Andreas Schik <andreas@schik.de>
  *
@@ -323,16 +323,6 @@ static AppController *appController = nil;
 	return [externalTools objectForKey: key];
 }
 
-- (NSArray *) registeredFileTypes
-{
-    return [audioConverters allKeys];
-}
-
-- (NSArray *) bundlesForFileType: (NSString *) fileType
-{
-    return [audioConverters objectForKey: fileType];
-}
-
 - (id) currentWriterBundle
 {
     NSDictionary *tools = [[NSUserDefaults standardUserDefaults] dictionaryForKey: @"SelectedTools"];
@@ -377,20 +367,31 @@ static AppController *appController = nil;
     return nil;
 }
 
-- (id) currentBundleForFileType: (NSString *) fileType
+- (id) currentCDGrabberBundle
 {
-    NSDictionary *tools = [[NSUserDefaults standardUserDefaults] dictionaryForKey: @"SelectedTools"];
-    if (nil != tools) {
-        NSString *bundleName = [tools objectForKey: fileType];
-        if ((nil != bundleName) && ![bundleName isEqualToString: @""]) {
-            return [self bundleForKey: bundleName];
+    // Return the first one from the dictionary.
+    NSEnumerator *e = [externalTools objectEnumerator];
+    id o;
+    while (nil != (o = [e nextObject])) {
+        if ([[o class] conformsToProtocol: @protocol(AudioConverter)]
+                && ([(id<AudioConverter>)o isCDGrabber] == YES)) {
+            return o;
         }
     }
-    // If we get here, no bundle has been selected, yet, by the user.
+    // Nothing found
+    return nil;
+}
+
+- (id) currentAudioConverterBundle
+{
     // Return the first one from the dictionary.
-    NSArray *a = [self bundlesForFileType: fileType];
-    if (1 <= [a count]) {
-        return [a objectAtIndex: 0];
+    NSEnumerator *e = [externalTools objectEnumerator];
+    id o;
+    while (nil != (o = [e nextObject])) {
+        if ([[o class] conformsToProtocol: @protocol(AudioConverter)]
+                && ([(id<AudioConverter>)o isCDGrabber] == NO)) {
+            return o;
+        }
     }
     // Nothing found
     return nil;
@@ -798,11 +799,11 @@ static AppController *appController = nil;
 		allFiles = [fileMan directoryContentsAtPath: libPath];
 
 		for (i = 0; i < [allFiles count]; i++) {
-			NSString *file = [allFiles objectAtIndex: i];
-      
+            NSString *file = [allFiles objectAtIndex: i];
+ 
 			// If we found a bundle, let's load it!
 			if ([[file pathExtension] isEqualToString: @"burntool"]) {
-				NSString *path = [NSString stringWithFormat: @"%@/%@",
+                NSString *path = [NSString stringWithFormat: @"%@/%@",
 											libPath, file];
 
 				bundle = [NSBundle bundleWithPath: path];
@@ -819,19 +820,6 @@ static AppController *appController = nil;
 
 						if (module) {
 							[externalTools setObject: module forKey: [module name]];
-                            /*
-                             * If it is an audio converter, we additionally store it under
-                             * its file type.
-                             */
-                            if ([class conformsToProtocol: @protocol(AudioConverter)]) {
-                                NSString *fileType = [(id<AudioConverter>)module fileType];
-                                NSMutableArray *mods = [audioConverters objectForKey: fileType];
-                                if (mods == nil) {
-                                    mods = [NSMutableArray new];
-                                    [audioConverters setObject: mods forKey: fileType];
-                                }
-                                [mods addObject: module];
-                            }
 
 							logToConsole(MessageStatusInfo, [NSString stringWithFormat: _(@"AppController.loadBundle"),
 											    path]);

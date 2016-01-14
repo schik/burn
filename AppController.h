@@ -2,7 +2,7 @@
 /*
  *	AppController.h
  *
- *	Copyright (c) 2002-2005, 2011
+ *	Copyright (c) 2002-2005, 2011, 2016
  *
  *	Author: Andreas Schik <andreas@schik.de>
  *
@@ -33,6 +33,7 @@
 @interface AppController : NSObject
 {
 	NSMutableDictionary *externalTools;
+    // TODO
 	NSMutableDictionary *audioConverters;
 
 	NSString *currentWorkingPath;
@@ -76,9 +77,6 @@
 - (NSArray *) allBundles;
 - (id) bundleForKey: (id) key;
 
-- (NSArray *) registeredFileTypes;
-- (NSArray *) bundlesForFileType: (NSString *) fileType;
-
 /**
  * <p>Returns the CD writing bundle as selected by the user.
  * If the user did not select a bundle, yet, we return the
@@ -96,18 +94,16 @@
 - (id) currentMkisofsBundle;
 
 /**
- * <p>Returns the audio conversion bundle as selected by the user.
- * If the user did not select a bundle, yet, we return the
- * first one from the list or @c nil, if no bundles have
- * been found.</p>
- * <br />
- * <strong>Inputs</strong><br />
- * <deflist>
- * <term>fileType</term>
- * <desc>The file type for which the conversion bundle is needed.</desc>
- * </deflist>
-  */
-- (id) currentBundleForFileType: (NSString *) fileType;
+ * <p>Returns the audio conversion bundle. There can only be one
+ * installed. If there is no bundle installed we return @c nil.</p>
+ */
+- (id) currentCDGrabberBundle;
+
+/**
+ * <p>Returns the audio CD grabber bundle. There can only be one
+ * installed. If there is no bundle installed we return @c nil.</p>
+ */
+- (id) currentAudioConverterBundle;
 
 /**
  * Returns the currently selected writing device. If the user has not
