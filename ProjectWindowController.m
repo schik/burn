@@ -2,7 +2,7 @@
 /*
  *	ProjectWindowController.m
  *
- *	Copyright (c) 2002-2008, 2011
+ *	Copyright (c) 2002-2008, 2011, 2016
  *
  *	Author: Andreas Schik <andreas@schik.de>
  *
@@ -499,7 +499,7 @@ static NSString *BlankCDButton = @"blankCdButton";
 {
     NSOpenPanel *openPanel;
     NSString *openDir;
-    NSMutableArray *types;
+    NSArray *types;
     int rc;
 
     openDir = [[NSUserDefaults standardUserDefaults] stringForKey: @"NSDefaultOpenDirectory"];
@@ -510,9 +510,7 @@ static NSString *BlankCDButton = @"blankCdButton";
     [openPanel setTitle: _(@"Add audio files...")];
     [openPanel setDirectory: openDir];
     // We only search for .wav, .au and the registered audio types
-	types = [[[AppController appController] registeredFileTypes] mutableCopy];
-	[types addObject: @"wav"];
-	[types addObject: @"au"];
+	types = getAudioFileTypes();
 
 	rc = [openPanel runModalForDirectory: openDir file: nil types: types];
 	if (rc == NSOKButton) {
