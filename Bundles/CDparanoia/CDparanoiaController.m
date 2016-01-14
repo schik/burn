@@ -2,9 +2,9 @@
 /*
  *  CDparanoiaController.m
  *
- *  Copyright (c) 2002-2005
+ *  Copyright (c) 2002-2005, 2016
  *
- *  Author: Andreas Heppel <aheppel@web.de>
+ *  Author: Andreas Schik <andreas@schik.de>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -247,9 +247,9 @@ static NSFileManager *fileMan = nil;
 //
 // AudioConverter methods
 //
-- (NSString *) fileType
+- (BOOL) isCDGrabber
 {
-    return @"cd";
+    return YES;
 }
 
 
