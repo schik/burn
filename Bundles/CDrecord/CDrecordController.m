@@ -57,6 +57,7 @@ static CDrecordController *singleInstance = nil;
         statusLock = [NSLock new];
         drivers = [NSMutableArray new];
         drives = [NSMutableDictionary new];
+        [self initializeFromDefaults];
         [self checkForDrives];
         [self getCDrecordDrivers];
     }
