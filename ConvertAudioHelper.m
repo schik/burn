@@ -2,7 +2,7 @@
 /*
  *	ConvertAudioHelper.m
  *
- *	Copyright (c) 2005, 2011
+ *	Copyright (c) 2005, 2011, 2016
  *
  *	Author: Andreas Schik <andreas@schik.de>
  *
@@ -117,7 +117,7 @@
 	while ((track = [eTracks nextObject]) != nil) {
 		NSString *trackType = [track type];
 		NSString *type = nil;
-		id tool;
+		id tool = nil;
 		ConvertProcess *process;
 
 		/*
@@ -135,7 +135,19 @@
 		/*
 		 * Try to get a handle to the converter bundle for this file type.
 		 */
-		tool = [[AppController appController] currentBundleForFileType: type];
+
+        // Some special handling for CD tracks: For each detected audio CD
+        // we create one separate process. This reduces CD switching if the
+        // result will be a compilation from more than one source.
+        if ([trackType isEqualToString: @"audio:cd"]) {
+		    tool = [[AppController appController] currentCDGrabberBundle];
+            data = [[[track source] componentsSeparatedByString: @"/"]
+                objectAtIndex: 0]; 
+            type = data;
+        } else {
+		    tool = [[AppController appController] currentAudioConverterBundle];
+            data = nil;
+        }
 		if (nil == tool) {
     	    NSRunAlertPanel(APP_NAME,
 							[NSString stringWithFormat: @"%@\n%@",
@@ -145,17 +157,6 @@
 			ret = Failed;
 	        goto clean_up;
 		}
-
-        // Tome special handling for CD tracks: For each detected audio CD
-        // we create one separate process. This reduces CD switching if the
-        // result will be a compilation from more than one source.
-        if ([trackType isEqualToString: @"audio:cd"]) {
-            data = [[[track source] componentsSeparatedByString: @"/"]
-                objectAtIndex: 0]; 
-            type = data;
-        } else {
-            data = nil;
-        }
 
 		process = [processHelper objectForKey: type];
 		if (!process) {
@@ -265,7 +266,6 @@ clean_up:
 {
 	NSString *sourceDevice;
     ConvertProcess *process;
-    NSString *type;
     // We know, that the dictionary returned here is mutable!
     // Silence the compiler!
 	NSMutableDictionary *burnParameters = (NSMutableDictionary *)[controller burnParameters];
@@ -277,13 +277,12 @@ clean_up:
     }
 
     process = [processes objectAtIndex: nextProcess++];
-    type = [process->tool fileType];
 
-    [controller setTitle: [NSString stringWithFormat: _(@"ConvertAudioHelper.preparing"), type]];
+    [controller setTitle: _(@"ConvertAudioHelper.preparing")];
     [controller setTrackProgress: 0. andLabel: @""];
 
     // trigger CD switching if necessary
-    if ([type isEqualToString: @"cd"]) {
+    if ([process->tool isCDGrabber] == YES) {
        	NSDictionary *cd = [[controller cdList] objectForKey: process->data];
         NSString *entireProgresstext = [NSString stringWithFormat:
 											_(@"GrabAudioCDHelper.CDTitle"),
