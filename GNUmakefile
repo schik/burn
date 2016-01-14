@@ -30,7 +30,7 @@ ifneq ($(bundles),no)
   SUBPROJECTS += \
     Bundles/CDrecord \
     Bundles/CDparanoia \
-    Bundles/MP3ToWav \
+    Bundles/AudioConverter \
     Bundles/Cdrdao \
     Bundles/MkIsoFs
 endif
