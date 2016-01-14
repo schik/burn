@@ -57,8 +57,6 @@ typedef enum {
     NSMutableArray *drivers;
 }
 
-- (void) checkForDrives;
-
 @end
 
 //
@@ -91,6 +89,8 @@ typedef enum {
 
 - (NSDictionary *) minfoInformationForDevice: (NSString *) device
                                   parameters: (NSDictionary *) parameters;
+
+- (void) checkForDrives;
 
 @end
 
