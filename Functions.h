@@ -2,7 +2,7 @@
 /*
  *  Functions.h
  *
- *  Copyright (c) 2002, 2011
+ *  Copyright (c) 2002, 2011, 2016
  *
  *  Author: Andreas Schik <andreas@schik.de>
  *
@@ -116,6 +116,7 @@ NSString *LocalLibraryPath(void);
 id loadAudioCD(void);
 NSArray *getAvailableDrives(void);
 BOOL isAudioFile(NSString *fileName);
+NSArray *getAudioFileTypes(void);
 
 NSString* framesToString(long frames);
 double framesToSeconds(long frames);

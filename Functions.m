@@ -2,7 +2,7 @@
 /*
  *  Functions.m
  *
- *  Copyright (c) 2002, 2011
+ *  Copyright (c) 2002, 2011, 2016
  *
  *  Author: Andreas Schik <andreas@schik.de>
  *
@@ -28,6 +28,8 @@
 #include "AppController.h"
 #include "Constants.h"
 #include "Functions.h"
+
+static NSArray *audioTypes = nil;
 
 /**
  * This function returns the full path to a file. It is basically the
@@ -122,11 +124,8 @@ BOOL checkProgram(NSString *name)
 BOOL isAudioFile(NSString *fileName)
 {
 	NSString *ext = [[fileName pathExtension] lowercaseString];
-	NSMutableArray *types = [[[AppController appController] registeredFileTypes] mutableCopy];
-	[types addObject: @"wav"];
-	[types addObject: @"au"];
-
-	return [types containsObject: ext];
+    NSArray *ft = getAudioFileTypes();
+	return [ft containsObject: ext];
 }
 
 
@@ -221,6 +220,15 @@ NSArray *getAvailableDrives(void)
 	drives = [writer availableDrives];
 
 	return drives;
+}
+
+NSArray *getAudioFileTypes(void)
+{
+    if (nil == audioTypes) {
+        audioTypes = [[NSArray alloc] initWithObjects: @"wav", @"au", @"mp3", @"ogg",
+                   @"flac", @"wma", @"aiff", @"avi", @"flv", @"m4v", @"mov", nil];
+    }
+    return audioTypes;
 }
 
 NSString* framesToString(long frames)
