@@ -1,10 +1,10 @@
-/* vim: set ft=objc ts=4 nowrap: */
+/* vim: set ft=objc et sw=4 ts=4 nowrap: */
 /*
  *  Track.m
  *
- *  Copyright (c) 2002
+ *  Copyright (c) 2002, 2016
  *
- *  Author: Andreas Heppel <aheppel@web.de>
+ *  Author: Andreas Schik <andreas@schik.de>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -36,29 +36,6 @@ static short auEncodings[] = {
 };
 
 static NSString *version = @"2.0";
-
-
-//
-// WAV file header, all values are little-endian (Intel byte order)
-// We don't use this any longer, as in particular the format chunck ('fmt')
-// may vary in length.
-//
-/*
-typedef struct {
-	char riffTag[4];			// RIFF
-	unsigned int totLength;		// total length to follow
-	char waveTag[4];			// WAVE
-	char fmtTag[4];				// fmt_
-	unsigned int fmtLength;		// length of FORMAT chunk (always 0x00000010)
-	unsigned short unused;		// always 0x01
-	unsigned short numChannels;	// channel numbers (0x01=Mono, 0x02=Stereo)
-	unsigned int smplRate;		// sample rate (binary, in Hz)
-	unsigned int byteSec;		// bytes per second
-	unsigned short byteSample;	// bytes Per sample: 1=8 bit Mono, 2=8 bit Stereo or 16 bit Mono, 4=16 bit Stereo
-	unsigned short bitsSample;	// bits per sample
-	char dataTag[4];			// data
-	unsigned int dataLength;	// length of data to follow
-} WavHeader;*/
 
 
 //
@@ -437,12 +414,13 @@ typedef struct {
 		if (isAudioFile(file)) {
 			NSString *ext = [[file pathExtension] lowercaseString];
 			NSString *type = [NSString stringWithFormat: @"audio:%@", ext];
-			id<AudioConverter> converter = [[AppController appController] currentBundleForFileType: ext];
+			id<AudioConverter> converter = [[AppController appController] currentAudioConverterBundle];
 
 			[self setType: type];
 			if (converter != nil) {
-				[self setDuration: [converter duration: file]];
-				[self setSize: [converter size: file]];
+                long duration = [converter duration: file];
+				[self setDuration: duration];
+				[self setSize: framesToAudioSize(duration)];
 			} else {
 				[self setDuration: 0];
 				[self setSize: 0];
