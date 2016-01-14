@@ -1,3 +1,16 @@
+Version 0.7.0
+-------------
+
+Changes:
+
+- The MP3ToWav bundle to convert MP3 files to WAV files that can be burned
+  to an audio CD is deprecated. Instead, the new AudioConverter bundle is
+  used, which can handle many more file types.
+
+Note: Due to changes in the API for the backend bundles this version is no
+longer compatibel with older ones, i.e. an old version must be uninstalled
+before installing this one to avoid problems.
+
 Version 0.6.0
 -------------
 
