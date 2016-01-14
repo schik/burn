@@ -2,9 +2,9 @@
 /*
  *  ParametersWindowController.m
  *
- *  Copyright (c) 2004
+ *  Copyright (c) 2004, 2016
  *
- *  Author: Andreas Heppel <aheppel@web.de>
+ *  Author: Andreas Schik <andreas@schik.de>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -104,15 +104,15 @@ static NSString *standardModules[] = {
         }
     }
     if (opMode & OperationModeBurnAudio) {
-        NSArray *types = [[AppController appController] registeredFileTypes];
-        NSEnumerator *e = [types objectEnumerator];
-        id type;
-        while ((type = [e nextObject])) {
-            id bundle = [[AppController appController] currentBundleForFileType: (NSString *)type];
-            if (nil != bundle) {
-    		    id<PreferencesModule> module = [bundle parameters];
-                [self addModule: module];
-            }
+        id bundle = [[AppController appController] currentCDGrabberBundle];
+        if (nil != bundle) {
+    		id<PreferencesModule> module = [bundle parameters];
+            [self addModule: module];
+        }
+        bundle = [[AppController appController] currentAudioConverterBundle];
+        if (nil != bundle) {
+    		id<PreferencesModule> module = [bundle parameters];
+            [self addModule: module];
         }
     }
 
