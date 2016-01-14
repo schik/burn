@@ -244,13 +244,12 @@
 
 - (void) createImageThread: (id)anObject
 {
-	BOOL result;
 	id pool = [NSAutoreleasePool new];
 
-	result = [currentTool createISOImage: [anObject objectForKey: @"volid"]
-							 withTracks: [anObject objectForKey: @"tracks"]
-							     toFile: [anObject objectForKey: @"image"]
-                         withParameters: [controller burnParameters]];
+    [currentTool createISOImage: [anObject objectForKey: @"volid"]
+                     withTracks: [anObject objectForKey: @"tracks"]
+                         toFile: [anObject objectForKey: @"image"]
+                 withParameters: [controller burnParameters]];
 
 	RELEASE(pool);
 	[NSThread exit];

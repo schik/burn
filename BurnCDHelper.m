@@ -173,7 +173,6 @@
 
 - (void) burnTrackThread: (id)anObject
 {
-	BOOL result;
 	Track *isoImage = nil;
 	id pool = [NSAutoreleasePool new];
 	id<Burner> burner = (id<Burner>)currentTool;
@@ -183,9 +182,9 @@
 	if (isoImageFile)
 		isoImage = [[[Track alloc] initWithDataFile: isoImageFile] autorelease];
 
-	result = [burner burnCDFromImage: isoImage
-					  andAudioTracks: [anObject objectForKey: @"tracks"]
-					  withParameters: burnParameters];
+	[burner burnCDFromImage: isoImage
+             andAudioTracks: [anObject objectForKey: @"tracks"]
+             withParameters: burnParameters];
 
 	RELEASE(pool);
 	[NSThread exit];
