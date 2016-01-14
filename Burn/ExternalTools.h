@@ -2,9 +2,9 @@
 /*
  *  ExternalTools.h
  *
- *  Copyright (c) 2002
+ *  Copyright (c) 2002, 2016
  *
- *  Author: Andreas Heppel <aheppel@web.de>
+ *  Author: Andreas Schik <andreas@schik.de>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -162,9 +162,10 @@ typedef enum {
 @protocol AudioConverter
 
 /**
- * <p>Returns the file type handled by this bundle.</p>
+ * <p>Returns whether the bundle grabs audio CDs or converts
+ * audio files.</p>
  */
-- (NSString *) fileType;
+- (BOOL) isCDGrabber;
 
 /**
  * <p>Returns the duration of the track in frames.</p>
